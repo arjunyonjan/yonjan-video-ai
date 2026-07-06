@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Spider-Man: Brand New Day — Frame Analysis</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body{font-family:Inter,sans-serif;background:#0a0a0f;color:#e5e7eb;padding-top:220px;transition:padding-top 0.3s}
+body.video-hidden{padding-top:40px}
+.glass{background:rgba(255,255,255,0.03);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.06)}
+#video-bar{position:fixed;top:0;left:0;right:0;z-index:50;background:#030712;border-bottom:1px solid rgba(255,255,255,0.06);padding:8px 16px;transition:transform 0.3s}
+#video-bar.hidden{transform:translateY(-100%)}
+#video-bar iframe{width:100%;max-width:400px;height:160px;margin:0 auto;display:block;border-radius:10px}
+#video-toggle{position:fixed;top:4px;right:12px;z-index:51;cursor:pointer;color:#6b7280;font-size:12px;padding:4px 8px;border-radius:4px;background:rgba(3,7,18,0.8);border:1px solid rgba(255,255,255,0.06)}
+</style>
+</head>
+<body>
+<div id="video-toggle" onclick="toggleVideo()">&#9650; Hide</div>
+<div id="video-bar">
+  <iframe src="https://www.youtube.com/embed/62bIsvRcPv0?autoplay=0&rel=0" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope" allowfullscreen></iframe>
+  <div class="text-center mt-1">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-medium">
+      <span class="w-2 h-2 rounded-full bg-red-400 animate-pulse"></span>
+      Spider-Man: Brand New Day &#183; Scene Detect &#183; 4/43 scenes
+    </div>
+  </div>
+</div>
+<script>
+function toggleVideo(){
+  var bar = document.getElementById('video-bar');
+  var btn = document.getElementById('video-toggle');
+  var body = document.body;
+  if (bar.classList.contains('hidden')) {
+    bar.classList.remove('hidden');
+    body.classList.remove('video-hidden');
+    btn.innerHTML = '&#9650; Hide';
+  } else {
+    bar.classList.add('hidden');
+    body.classList.add('video-hidden');
+    btn.innerHTML = '&#9660; Show';
+  }
+}</script>
+
+<div class="max-w-5xl mx-auto">
+  <div class="text-center mb-8">
+    <h1 class="text-3xl font-extrabold"><span class="bg-gradient-to-r from-red-500 via-blue-500 to-red-500 bg-clip-text text-transparent">Frame Analysis</span></h1>
+    <p class="text-gray-600 mt-1 text-xs">Moondream + Whisper STT + Tesseract OCR · Scene detect · Honor 90</p>
+  </div>
+  
+  <div class="mb-8" id="frame-001">
+    <div class="flex items-center gap-3 mb-3">
+      <div class="h-px flex-1 bg-white/5"></div>
+      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 001 · 0:05</span>
+      <span class="text-xs text-gray-600">29.0s</span>
+      <div class="h-px flex-1 bg-white/5"></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div class="glass rounded-2xl p-3">
+        <img src="scene_001.jpg" alt="Frame 001" class="w-full rounded-xl">
+      </div>
+      <div class="glass rounded-2xl p-4">
+        <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream</div>
+        <p class="text-gray-400 text-sm leading-relaxed">Close-up of Spider-Man face, red and black suit against dark background, facing right</p>
+        <div class="mt-2 pt-2 border-t border-white/5"><div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Dialogue</div><div class="text-xs text-yellow-300/80 leading-relaxed">Did you miss this fight?<br>I'm losing my mind.</div></div>
+        
+        <div class="mt-2 pt-2 border-t border-white/5 text-xs text-gray-600">
+          ⏱ 29000ms · RTX 3060 est: 2030ms · RTX 5060 est: 1015ms
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-8" id="frame-002">
+    <div class="flex items-center gap-3 mb-3">
+      <div class="h-px flex-1 bg-white/5"></div>
+      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 002 · 0:10</span>
+      <span class="text-xs text-gray-600">53.7s</span>
+      <div class="h-px flex-1 bg-white/5"></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div class="glass rounded-2xl p-3">
+        <img src="scene_002.jpg" alt="Frame 002" class="w-full rounded-xl">
+      </div>
+      <div class="glass rounded-2xl p-4">
+        <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream</div>
+        <p class="text-gray-400 text-sm leading-relaxed">The image features a large, red banner that displays the word "Marvel Studi Studios" in white letters. The banner is positioned horizontally across the the frame and occupies most of the space within the image. The bold red col color of the banner contrasts with the black background, making it stand ou out prominently.</p>
+        <div class="mt-2 pt-2 border-t border-white/5"><div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Dialogue</div><div class="text-xs text-yellow-300/80 leading-relaxed">I'm losing my mind.<br>I'm totally out of control.</div></div>
+        
+        <div class="mt-2 pt-2 border-t border-white/5 text-xs text-gray-600">
+          ⏱ 53673ms · RTX 3060 est: 3757ms · RTX 5060 est: 1878ms
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-8" id="frame-003">
+    <div class="flex items-center gap-3 mb-3">
+      <div class="h-px flex-1 bg-white/5"></div>
+      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 003 · 0:15</span>
+      <span class="text-xs text-gray-600">188.6s</span>
+      <div class="h-px flex-1 bg-white/5"></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div class="glass rounded-2xl p-3">
+        <img src="scene_003.jpg" alt="Frame 003" class="w-full rounded-xl">
+      </div>
+      <div class="glass rounded-2xl p-4">
+        <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream</div>
+        <p class="text-gray-400 text-sm leading-relaxed">The image features a man wearing glasses and sitting in front of a computer computer screen. He is leaning over the desk, possibly working on a project project or browsing the internet. The scene takes place against a green bac background with white text displayed on it.</p>
+        <div class="mt-2 pt-2 border-t border-white/5"><div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Dialogue</div><div class="text-xs text-yellow-300/80 leading-relaxed">I got to fix whatever this is right now.<br>Final semester at my team.</div></div>
+        
+        <div class="mt-2 pt-2 border-t border-white/5 text-xs text-gray-600">
+          ⏱ 188565ms · RTX 3060 est: 13199ms · RTX 5060 est: 6599ms
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-8" id="frame-004">
+    <div class="flex items-center gap-3 mb-3">
+      <div class="h-px flex-1 bg-white/5"></div>
+      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 004 · 0:20</span>
+      <span class="text-xs text-gray-600">93.1s</span>
+      <div class="h-px flex-1 bg-white/5"></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div class="glass rounded-2xl p-3">
+        <img src="scene_004.jpg" alt="Frame 004" class="w-full rounded-xl">
+      </div>
+      <div class="glass rounded-2xl p-4">
+        <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream</div>
+        <p class="text-gray-400 text-sm leading-relaxed">The image features a man standing in an auditorium, looking up at the ceili ceiling. He is wearing a black sweatshirt with white text on it and appears appears to be focused on something above him. The scene takes place within a theater setting, as indicated by the presence of multiple chairs arranged arranged around the room.</p>
+        <div class="mt-2 pt-2 border-t border-white/5"><div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Dialogue</div><div class="text-xs text-yellow-300/80 leading-relaxed">Final semester at my team.<br>Dad, what do you think is actually watching this?<br>Uh, maybe someone.</div></div>
+        
+        <div class="mt-2 pt-2 border-t border-white/5 text-xs text-gray-600">
+          ⏱ 93083ms · RTX 3060 est: 6515ms · RTX 5060 est: 3257ms
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center pt-8 pb-8">
+    <p class="text-xs text-gray-700">Generated 2026-07-06 · Moondream via Ollama</p>
+  </div>
+</div>
+</body>
+</html>
