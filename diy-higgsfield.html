@@ -97,267 +97,267 @@ document.addEventListener('keydown', function(e) {
 
 <!-- Hero -->
 <div class="text-center mb-16">
-<h1 class="text-5xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent mb-4">DIY Higgsfield</h1>
-<p class="text-gray-400 text-lg max-w-2xl mx-auto">Build your own AI video generation platform from scratch. Full reverse-engineering of a 2h 19m build video with 28 sample points, Moondream vision, Tesseract OCR, and Whisper transcription.</p>
-<div class="flex gap-4 justify-center mt-6 text-sm flex-wrap">
-<span class="px-4 py-2 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">28 sample points</span>
-<span class="px-4 py-2 rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">1961 dialogue lines</span>
-<span class="px-4 py-2 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">Moondream Vision</span>
-<span class="px-4 py-2 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20">Tesseract OCR</span>
-<span class="px-4 py-2 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Whisper STT</span>
+<h1 class="text-6xl md:text-7xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent mb-6">DIY Higgsfield</h1>
+<p class="text-gray-400 text-xl max-w-3xl mx-auto leading-relaxed">Build your own AI video generation platform from scratch. Full reverse-engineering of a 2h 19m build video with 28 sample points, Moondream vision, Tesseract OCR, and Whisper transcription.</p>
+<div class="flex gap-4 justify-center mt-8 text-base flex-wrap">
+<span class="px-5 py-2.5 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20 font-medium">28 sample points</span>
+<span class="px-5 py-2.5 rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20 font-medium">1961 dialogue lines</span>
+<span class="px-5 py-2.5 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 font-medium">Moondream Vision</span>
+<span class="px-5 py-2.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20 font-medium">Tesseract OCR</span>
+<span class="px-5 py-2.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 font-medium">Whisper STT</span>
 </div>
 </div>
 
 <!-- Quick Grid -->
 <div class="glass rounded-2xl p-8 mb-12">
-<h2 class="text-2xl font-semibold mb-4">Quick Overview (every 5 min)</h2>
-<p class="text-gray-500 text-sm mb-6">Click any image for full-screen zoom. Each card shows Moondream description + first dialogue line.</p>
+<h2 class="text-3xl font-semibold mb-6">Quick Overview (every 5 min)</h2>
+<p class="text-gray-500 text-base mb-6">Click any image for full-screen zoom with prev/next navigation. Each card shows Moondream description + first dialogue line.</p>
 <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-2">
 
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_000.jpg', 0)">
-        <img src="frames_random/frame_000.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 000</div>
-        <div class="text-xs text-gray-500 leading-tight">Man in sunglasses sitting in car driver seat</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"Let me set the context for the video."</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_000.jpg', 0)">
+        <img src="frames_random/frame_000.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 000</div>
+        <div class="text-sm text-gray-500 leading-snug">Man in sunglasses sitting in car driver seat</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"Let me set the context for the video."</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_005.jpg', 1)">
-        <img src="frames_random/frame_005.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 005</div>
-        <div class="text-xs text-gray-500 leading-tight">Computer screen showing video creation website landing page</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"If needed add a bunch of reference videos,"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_005.jpg', 1)">
+        <img src="frames_random/frame_005.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 005</div>
+        <div class="text-sm text-gray-500 leading-snug">Computer screen showing video creation website landing page</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"If needed add a bunch of reference videos,"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_010.jpg', 2)">
-        <img src="frames_random/frame_010.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 010</div>
-        <div class="text-xs text-gray-500 leading-tight">Black screen with white text: Part 1 - Architecture</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"and also happy that, you know, I have a coding com"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_010.jpg', 2)">
+        <img src="frames_random/frame_010.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 010</div>
+        <div class="text-sm text-gray-500 leading-snug">Black screen with white text: Part 1 - Architecture</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"and also happy that, you know, I have a coding com"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_015.jpg', 3)">
-        <img src="frames_random/frame_015.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 015</div>
-        <div class="text-xs text-gray-500 leading-tight">Computer screen with webpage showing text and code, presenter face visible</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"Let me,"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_015.jpg', 3)">
+        <img src="frames_random/frame_015.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 015</div>
+        <div class="text-sm text-gray-500 leading-snug">Computer screen with webpage showing text and code, presenter face visible</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"Let me,"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_020.jpg', 4)">
-        <img src="frames_random/frame_020.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 020</div>
-        <div class="text-xs text-gray-500 leading-tight">Computer screen with presenter face, online video tutorial</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"this thing right here,"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_020.jpg', 4)">
+        <img src="frames_random/frame_020.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 020</div>
+        <div class="text-sm text-gray-500 leading-snug">Computer screen with presenter face, online video tutorial</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"this thing right here,"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_025.jpg', 5)">
-        <img src="frames_random/frame_025.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 025</div>
-        <div class="text-xs text-gray-500 leading-tight">Computer screen showing code in programming language</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"I would assume this is able to do everything in on"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_025.jpg', 5)">
+        <img src="frames_random/frame_025.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 025</div>
+        <div class="text-sm text-gray-500 leading-snug">Computer screen showing code in programming language</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"I would assume this is able to do everything in on"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_030.jpg', 6)">
-        <img src="frames_random/frame_030.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 030</div>
-        <div class="text-xs text-gray-500 leading-tight">Web browser open, man wearing glasses</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"mono-repolio,"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_030.jpg', 6)">
+        <img src="frames_random/frame_030.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 030</div>
+        <div class="text-sm text-gray-500 leading-snug">Web browser open, man wearing glasses</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"mono-repolio,"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_035.jpg', 7)">
-        <img src="frames_random/frame_035.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 035</div>
-        <div class="text-xs text-gray-500 leading-tight">Webpage with text and code, focus on code block</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"A Google client ID can secret and open router API "</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_035.jpg', 7)">
+        <img src="frames_random/frame_035.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 035</div>
+        <div class="text-sm text-gray-500 leading-snug">Webpage with text and code, focus on code block</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"A Google client ID can secret and open router API "</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_040.jpg', 8)">
-        <img src="frames_random/frame_040.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 040</div>
-        <div class="text-xs text-gray-500 leading-tight">Webpage with text and image in browser</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"An image tab and a face swap tab."</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_040.jpg', 8)">
+        <img src="frames_random/frame_040.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 040</div>
+        <div class="text-sm text-gray-500 leading-snug">Webpage with text and image in browser</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"An image tab and a face swap tab."</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_045.jpg', 9)">
-        <img src="frames_random/frame_045.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 045</div>
-        <div class="text-xs text-gray-500 leading-tight">Webpage with man face wearing glasses</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"And if they want, replace their face in their vide"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_045.jpg', 9)">
+        <img src="frames_random/frame_045.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 045</div>
+        <div class="text-sm text-gray-500 leading-snug">Webpage with man face wearing glasses</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"And if they want, replace their face in their vide"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_050.jpg', 10)">
-        <img src="frames_random/frame_050.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 050</div>
-        <div class="text-xs text-gray-500 leading-tight">Open webpage with black background, code focus</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"And if they want, regenerate the video with their "</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_050.jpg', 10)">
+        <img src="frames_random/frame_050.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 050</div>
+        <div class="text-sm text-gray-500 leading-snug">Open webpage with black background, code focus</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"And if they want, regenerate the video with their "</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_055.jpg', 11)">
-        <img src="frames_random/frame_055.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 055</div>
-        <div class="text-xs text-gray-500 leading-tight">Webpage with text and images, code displayed</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"Yes, it's absurd."</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_055.jpg', 11)">
+        <img src="frames_random/frame_055.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 055</div>
+        <div class="text-sm text-gray-500 leading-snug">Webpage with text and images, code displayed</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"Yes, it's absurd."</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_060.jpg', 12)">
-        <img src="frames_random/frame_060.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 060</div>
-        <div class="text-xs text-gray-500 leading-tight">Open web browser, man wearing glasses</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"Music video."</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_060.jpg', 12)">
+        <img src="frames_random/frame_060.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 060</div>
+        <div class="text-sm text-gray-500 leading-snug">Open web browser, man wearing glasses</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"Music video."</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_065.jpg', 13)">
-        <img src="frames_random/frame_065.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 065</div>
-        <div class="text-xs text-gray-500 leading-tight">Open web browser, webpage displayed</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"7 when he p's good, 16 to 9 is good."</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_065.jpg', 13)">
+        <img src="frames_random/frame_065.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 065</div>
+        <div class="text-sm text-gray-500 leading-snug">Open web browser, webpage displayed</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"7 when he p's good, 16 to 9 is good."</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_070.jpg', 14)">
-        <img src="frames_random/frame_070.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 070</div>
-        <div class="text-xs text-gray-500 leading-tight">Web browser open, person face visible</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"Now let me add the very first track for four secon"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_070.jpg', 14)">
+        <img src="frames_random/frame_070.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 070</div>
+        <div class="text-sm text-gray-500 leading-snug">Web browser open, person face visible</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"Now let me add the very first track for four secon"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_075.jpg', 15)">
-        <img src="frames_random/frame_075.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 075</div>
-        <div class="text-xs text-gray-500 leading-tight">Code in text editor, programming language</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"We should also probably."</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_075.jpg', 15)">
+        <img src="frames_random/frame_075.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 075</div>
+        <div class="text-sm text-gray-500 leading-snug">Code in text editor, programming language</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"We should also probably."</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_080.jpg', 16)">
-        <img src="frames_random/frame_080.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 080</div>
-        <div class="text-xs text-gray-500 leading-tight">Web browser with green webpage displayed</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"At this point, I should add another video."</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_080.jpg', 16)">
+        <img src="frames_random/frame_080.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 080</div>
+        <div class="text-sm text-gray-500 leading-snug">Web browser with green webpage displayed</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"At this point, I should add another video."</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_085.jpg', 17)">
-        <img src="frames_random/frame_085.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 085</div>
-        <div class="text-xs text-gray-500 leading-tight">Open webpage with video playing, New York Times</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"back in restart refresh this one and let's see I c"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_085.jpg', 17)">
+        <img src="frames_random/frame_085.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 085</div>
+        <div class="text-sm text-gray-500 leading-snug">Open webpage with video playing, New York Times</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"back in restart refresh this one and let's see I c"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_090.jpg', 18)">
-        <img src="frames_random/frame_090.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 090</div>
-        <div class="text-xs text-gray-500 leading-tight">Webpage with man face, black background</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"baked during export though ones that already are s"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_090.jpg', 18)">
+        <img src="frames_random/frame_090.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 090</div>
+        <div class="text-sm text-gray-500 leading-snug">Webpage with man face, black background</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"baked during export though ones that already are s"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_095.jpg', 19)">
-        <img src="frames_random/frame_095.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 095</div>
-        <div class="text-xs text-gray-500 leading-tight">Open web browser, person face in corner</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"beautiful I think that's exactly what I needed a r"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_095.jpg', 19)">
+        <img src="frames_random/frame_095.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 095</div>
+        <div class="text-sm text-gray-500 leading-snug">Open web browser, person face in corner</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"beautiful I think that's exactly what I needed a r"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_100.jpg', 20)">
-        <img src="frames_random/frame_100.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 100</div>
-        <div class="text-xs text-gray-500 leading-tight">Web browser open, person profile visible</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"that's AI generated beautiful and this one generat"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_100.jpg', 20)">
+        <img src="frames_random/frame_100.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 100</div>
+        <div class="text-sm text-gray-500 leading-snug">Web browser open, person profile visible</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"that's AI generated beautiful and this one generat"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_105.jpg', 21)">
-        <img src="frames_random/frame_105.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 105</div>
-        <div class="text-xs text-gray-500 leading-tight">Error message on left side of screen</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"for end users and not for admins um who generate t"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_105.jpg', 21)">
+        <img src="frames_random/frame_105.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 105</div>
+        <div class="text-sm text-gray-500 leading-snug">Error message on left side of screen</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"for end users and not for admins um who generate t"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_110.jpg', 22)">
-        <img src="frames_random/frame_110.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 110</div>
-        <div class="text-xs text-gray-500 leading-tight">Online video editing software, Edit tab</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"cool let's do a rebuild probably only need the fro"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_110.jpg', 22)">
+        <img src="frames_random/frame_110.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 110</div>
+        <div class="text-sm text-gray-500 leading-snug">Online video editing software, Edit tab</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"cool let's do a rebuild probably only need the fro"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_115.jpg', 23)">
-        <img src="frames_random/frame_115.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 115</div>
-        <div class="text-xs text-gray-500 leading-tight">Web browser open, man wearing glasses</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"off a bunch of parallel tasks while I spend my tim"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_115.jpg', 23)">
+        <img src="frames_random/frame_115.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 115</div>
+        <div class="text-sm text-gray-500 leading-snug">Web browser open, man wearing glasses</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"off a bunch of parallel tasks while I spend my tim"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_120.jpg', 24)">
-        <img src="frames_random/frame_120.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 120</div>
-        <div class="text-xs text-gray-500 leading-tight">Webpage with man face wearing glasses</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"you can do it here you can do it inside the termin"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_120.jpg', 24)">
+        <img src="frames_random/frame_120.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 120</div>
+        <div class="text-sm text-gray-500 leading-snug">Webpage with man face wearing glasses</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"you can do it here you can do it inside the termin"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_125.jpg', 25)">
-        <img src="frames_random/frame_125.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 125</div>
-        <div class="text-xs text-gray-500 leading-tight">Open web browser with many tabs</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"take this it will look bad I will become the secon"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_125.jpg', 25)">
+        <img src="frames_random/frame_125.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 125</div>
+        <div class="text-sm text-gray-500 leading-snug">Open web browser with many tabs</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"take this it will look bad I will become the secon"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_130.jpg', 26)">
-        <img src="frames_random/frame_130.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 130</div>
-        <div class="text-xs text-gray-500 leading-tight">Two images shown: astronaut suit person and another</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"video on hex field this is the prompt for it I gen"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_130.jpg', 26)">
+        <img src="frames_random/frame_130.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 130</div>
+        <div class="text-sm text-gray-500 leading-snug">Two images shown: astronaut suit person and another</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"video on hex field this is the prompt for it I gen"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_135.jpg', 27)">
-        <img src="frames_random/frame_135.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 135</div>
-        <div class="text-xs text-gray-500 leading-tight">PayPal.com website displayed</div>
-        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"this is what it looks like if you use Razer Pay an"</div>
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-3 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_135.jpg', 27)">
+        <img src="frames_random/frame_135.jpg" class="w-full rounded-lg mb-2" loading="lazy">
+        <div class="text-sm text-gray-400 font-medium">Min 135</div>
+        <div class="text-sm text-gray-500 leading-snug">PayPal.com website displayed</div>
+        <div class="text-sm text-yellow-500/70 italic mt-1 truncate">"this is what it looks like if you use Razer Pay an"</div>
     </div>
 </div>
 </div>
 
 <!-- Architecture -->
 <div class="glass rounded-2xl p-8 mb-12">
-<h2 class="text-2xl font-semibold mb-6">Architecture Overview</h2>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-<div class="p-4 rounded-xl bg-purple-500/5 border border-purple-500/10">
-<div class="text-2xl mb-1">🎬</div>
-<div class="text-sm font-medium">Stable Video Diffusion</div>
-<div class="text-xs text-gray-500 mt-1">Text/Image to video. Core generation model.</div>
+<h2 class="text-3xl font-semibold mb-6">Architecture Overview</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+<div class="p-6 rounded-xl bg-purple-500/5 border border-purple-500/10">
+<div class="text-4xl mb-3">🎬</div>
+<div class="text-lg font-medium">Stable Video Diffusion</div>
+<div class="text-sm text-gray-500 mt-2">Text/Image to video. Core generation model.</div>
 </div>
-<div class="p-4 rounded-xl bg-pink-500/5 border border-pink-500/10">
-<div class="text-2xl mb-1">🔄</div>
-<div class="text-sm font-medium">Face Swap</div>
-<div class="text-xs text-gray-500 mt-1">InsightFace + Inswapper. Frame-by-frame.</div>
+<div class="p-6 rounded-xl bg-pink-500/5 border border-pink-500/10">
+<div class="text-4xl mb-3">🔄</div>
+<div class="text-lg font-medium">Face Swap</div>
+<div class="text-sm text-gray-500 mt-2">InsightFace + Inswapper. Frame-by-frame.</div>
 </div>
-<div class="p-4 rounded-xl bg-indigo-500/5 border border-indigo-500/10">
-<div class="text-2xl mb-1">👤</div>
-<div class="text-sm font-medium">Character Consistency</div>
-<div class="text-xs text-gray-500 mt-1">IP-Adapter + LoRA. Same face across scenes.</div>
+<div class="p-6 rounded-xl bg-indigo-500/5 border border-indigo-500/10">
+<div class="text-4xl mb-3">👤</div>
+<div class="text-lg font-medium">Character Consistency</div>
+<div class="text-sm text-gray-500 mt-2">IP-Adapter + LoRA. Same face across scenes.</div>
 </div>
-<div class="p-4 rounded-xl bg-amber-500/5 border border-amber-500/10">
-<div class="text-2xl mb-1">🎥</div>
-<div class="text-sm font-medium">Cinema Pipeline</div>
-<div class="text-xs text-gray-500 mt-1">LUT grading + RIFE interpolation + audio.</div>
+<div class="p-6 rounded-xl bg-amber-500/5 border border-amber-500/10">
+<div class="text-4xl mb-3">🎥</div>
+<div class="text-lg font-medium">Cinema Pipeline</div>
+<div class="text-sm text-gray-500 mt-2">LUT grading + RIFE interpolation + audio.</div>
 </div>
 </div>
 </div>
 
 <!-- Build Steps -->
 <div class="glass rounded-2xl p-8 mb-12">
-<h2 class="text-2xl font-semibold mb-6">Build Steps (from video analysis)</h2>
-<div class="space-y-4">
-<div class="flex gap-4">
-<div class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-300 flex items-center justify-center shrink-0 font-bold">1</div>
+<h2 class="text-3xl font-semibold mb-6">Build Steps (from video analysis)</h2>
+<div class="space-y-6">
+<div class="flex gap-5">
+<div class="w-10 h-10 rounded-full bg-purple-500/20 text-purple-300 flex items-center justify-center shrink-0 font-bold text-lg">1</div>
 <div>
-<h3 class="font-medium text-white">Environment Setup</h3>
-<p class="text-sm text-gray-400">Python 3.12, CUDA 12.4, PyTorch 2.6 with fp16 support. Install diffusers, transformers, accelerate, xformers for memory-efficient attention.</p>
-<pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-2 mt-1 overflow-x-auto">pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+<h3 class="text-xl font-medium text-white">Environment Setup</h3>
+<p class="text-base text-gray-400 mt-1">Python 3.12, CUDA 12.4, PyTorch 2.6 with fp16 support. Install diffusers, transformers, accelerate, xformers for memory-efficient attention.</p>
+<pre class="text-sm text-gray-500 bg-black/30 rounded-lg p-3 mt-2 overflow-x-auto">pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 pip install diffusers transformers accelerate xformers sentencepiece protobuf</pre>
 </div>
 </div>
-<div class="flex gap-4">
-<div class="w-8 h-8 rounded-full bg-pink-500/20 text-pink-300 flex items-center justify-center shrink-0 font-bold">2</div>
+<div class="flex gap-5">
+<div class="w-10 h-10 rounded-full bg-pink-500/20 text-pink-300 flex items-center justify-center shrink-0 font-bold text-lg">2</div>
 <div>
-<h3 class="font-medium text-white">LoRA Fine-Tuning</h3>
-<p class="text-sm text-gray-400">Train a Low-Rank Adapter on 10 custom videos (5-15 seconds each). Rank=64 captures style without overfitting. 1 hour on RTX 5060.</p>
-<pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-2 mt-1 overflow-x-auto">accelerate launch train_lora.py   --pretrained_model_name="stabilityai/stable-video-diffusion-img2vid"   --train_data_dir="./my_videos" --rank=64   --learning_rate=1e-4 --num_train_epochs=100   --mixed_precision=fp16</pre>
+<h3 class="text-xl font-medium text-white">LoRA Fine-Tuning</h3>
+<p class="text-base text-gray-400 mt-1">Train a Low-Rank Adapter on 10 custom videos (5-15 seconds each). Rank=64 captures style without overfitting. 1 hour on RTX 5060.</p>
+<pre class="text-sm text-gray-500 bg-black/30 rounded-lg p-3 mt-2 overflow-x-auto">accelerate launch train_lora.py   --pretrained_model_name="stabilityai/stable-video-diffusion-img2vid"   --train_data_dir="./my_videos" --rank=64   --learning_rate=1e-4 --num_train_epochs=100   --mixed_precision=fp16</pre>
 </div>
 </div>
-<div class="flex gap-4">
-<div class="w-8 h-8 rounded-full bg-indigo-500/20 text-indigo-300 flex items-center justify-center shrink-0 font-bold">3</div>
+<div class="flex gap-5">
+<div class="w-10 h-10 rounded-full bg-indigo-500/20 text-indigo-300 flex items-center justify-center shrink-0 font-bold text-lg">3</div>
 <div>
-<h3 class="font-medium text-white">Face Swap Pipeline</h3>
-<p class="text-sm text-gray-400">InsightFace detection + inswapper_128 with temporal smoothing (3-frame rolling average). Critical: without smoothing, faces jitter between frames.</p>
-<pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-2 mt-1 overflow-x-auto">pip install insightface onnxruntime-gpu opencv-python-headless
+<h3 class="text-xl font-medium text-white">Face Swap Pipeline</h3>
+<p class="text-base text-gray-400 mt-1">InsightFace detection + inswapper_128 with temporal smoothing (3-frame rolling average). Critical: without smoothing, faces jitter between frames.</p>
+<pre class="text-sm text-gray-500 bg-black/30 rounded-lg p-3 mt-2 overflow-x-auto">pip install insightface onnxruntime-gpu opencv-python-headless
 # Temporal smoothing: average face landmarks across 3 frames</pre>
 </div>
 </div>
-<div class="flex gap-4">
-<div class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-300 flex items-center justify-center shrink-0 font-bold">4</div>
+<div class="flex gap-5">
+<div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-300 flex items-center justify-center shrink-0 font-bold text-lg">4</div>
 <div>
-<h3 class="font-medium text-white">Character Consistency</h3>
-<p class="text-sm text-gray-400">IP-Adapter FaceID Plus v2 — works from a single reference photo (no training needed). Combine with background replacement via Stable Diffusion inpainting.</p>
-<pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-2 mt-1 overflow-x-auto">from ip_adapter import IPAdapter
+<h3 class="text-xl font-medium text-white">Character Consistency</h3>
+<p class="text-base text-gray-400 mt-1">IP-Adapter FaceID Plus v2 — works from a single reference photo (no training needed). Combine with background replacement via Stable Diffusion inpainting.</p>
+<pre class="text-sm text-gray-500 bg-black/30 rounded-lg p-3 mt-2 overflow-x-auto">from ip_adapter import IPAdapter
 ip_adapter = IPAdapter(pipe, "ip-adapter-faceid-plusv2_sd15.bin")
 pipe.unet = ip_adapter.apply("character.jpg")</pre>
 </div>
 </div>
-<div class="flex gap-4">
-<div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0 font-bold">5</div>
+<div class="flex gap-5">
+<div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0 font-bold text-lg">5</div>
 <div>
-<h3 class="font-medium text-white">Cinema Pipeline</h3>
-<p class="text-sm text-gray-400">LUT color grading (5 presets: Blockbuster, Noir, Teal-Orange), RIFE/FILM motion interpolation (24→60fps), audio ducking for background music.</p>
-<pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-2 mt-1 overflow-x-auto">ffmpeg -i input.mp4 -vf "lut3d=blockbuster.cube" output.mp4
+<h3 class="text-xl font-medium text-white">Cinema Pipeline</h3>
+<p class="text-base text-gray-400 mt-1">LUT color grading (5 presets: Blockbuster, Noir, Teal-Orange), RIFE/FILM motion interpolation (24 to 60fps), audio ducking for background music.</p>
+<pre class="text-sm text-gray-500 bg-black/30 rounded-lg p-3 mt-2 overflow-x-auto">ffmpeg -i input.mp4 -vf "lut3d=blockbuster.cube" output.mp4
 ffmpeg -i input.mp4 -vf "minterpolate=fps=60:mi_mode=mci" output.mp4</pre>
 </div>
 </div>
@@ -366,13 +366,13 @@ ffmpeg -i input.mp4 -vf "minterpolate=fps=60:mi_mode=mci" output.mp4</pre>
 
 <!-- DeepSeek-Style Long Article -->
 <div class="glass rounded-2xl p-8 mb-12">
-<h2 class="text-2xl font-semibold mb-6">How to Build DIY Higgsfield — Complete Walkthrough</h2>
+<h2 class="text-3xl font-semibold mb-6">How to Build DIY Higgsfield — Complete Walkthrough</h2>
 
-<div class="prose prose-invert max-w-none text-gray-400 text-sm space-y-6">
+<div class="prose prose-invert max-w-none text-gray-400 text-base space-y-6">
 
-<h3 class="text-lg font-semibold text-white mt-8">1. Understanding the Architecture</h3>
-<p>Higgsfield is not a single model — it's a pipeline. Video generation works like this:</p>
-<pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-3 overflow-x-auto my-3">
+<h3 class="text-2xl font-semibold text-white mt-8">1. Understanding the Architecture</h3>
+<p class="text-base">Higgsfield is not a single model — it's a pipeline. Video generation works like this:</p>
+<pre class="text-sm text-gray-500 bg-black/30 rounded-lg p-4 overflow-x-auto my-4 leading-relaxed">
 Input: Text Prompt or Image
   └─ Stable Video Diffusion (generates 25 frames)
        ├─ LoRA Adapter (applies your custom style)
@@ -386,10 +386,10 @@ Input: Text Prompt or Image
 Output: 4K 60fps video with consistent character
 </pre>
 
-<h3 class="text-lg font-semibold text-white mt-8">2. Stable Video Diffusion — The Core</h3>
-<p><strong>What it does:</strong> Takes an image and generates a short video (2-4 seconds, 25 frames). It works by extending the image forward in time, predicting how pixels should move.</p>
-<p><strong>Key insight from the video:</strong> The creator spent most of the 2h 19m experimenting with different prompts and settings. The final working pipeline uses <code class="text-purple-400">decode_chunk_size=4</code> and <code class="text-purple-400">num_frames=25</code> to fit within 8GB VRAM.</p>
-<pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-3 overflow-x-auto my-3">
+<h3 class="text-2xl font-semibold text-white mt-8">2. Stable Video Diffusion — The Core</h3>
+<p class="text-base"><strong>What it does:</strong> Takes an image and generates a short video (2-4 seconds, 25 frames). It works by extending the image forward in time, predicting how pixels should move.</p>
+<p class="text-base"><strong>Key insight from the video:</strong> The creator spent most of the 2h 19m experimenting with different prompts and settings. The final working pipeline uses <code class="text-purple-400">decode_chunk_size=4</code> and <code class="text-purple-400">num_frames=25</code> to fit within 8GB VRAM.</p>
+<pre class="text-sm text-gray-500 bg-black/30 rounded-lg p-4 overflow-x-auto my-4 leading-relaxed">
 <span class="text-purple-400">from</span> diffusers <span class="text-purple-400">import</span> StableVideoDiffusionPipeline
 <span class="text-purple-400">import</span> torch
 
@@ -405,10 +405,10 @@ frames = pipe(image, decode_chunk_size=4, num_frames=25).frames[0]
 <span class="text-gray-600"># ~30 seconds on RTX 5060 for 25 frames</span>
 </pre>
 
-<h3 class="text-lg font-semibold text-white mt-8">3. LoRA Fine-Tuning</h3>
-<p><strong>Why you need it:</strong> Base SVD generates generic videos. LoRA teaches it YOUR style — whether that's "cinematic, dark, moody" or "bright, colorful, cartoon".</p>
-<p><strong>What the video showed:</strong> The creator trained on 10 custom video clips (5-15 seconds each). The key is diversity — different angles, lighting, and subjects prevent overfitting.</p>
-<pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-3 overflow-x-auto my-3">
+<h3 class="text-2xl font-semibold text-white mt-8">3. LoRA Fine-Tuning</h3>
+<p class="text-base"><strong>Why you need it:</strong> Base SVD generates generic videos. LoRA teaches it YOUR style — whether that's "cinematic, dark, moody" or "bright, colorful, cartoon".</p>
+<p class="text-base"><strong>What the video showed:</strong> The creator trained on 10 custom video clips (5-15 seconds each). The key is diversity — different angles, lighting, and subjects prevent overfitting.</p>
+<pre class="text-sm text-gray-500 bg-black/30 rounded-lg p-4 overflow-x-auto my-4 leading-relaxed">
 <span class="text-gray-600"># Training command from the video</span>
 accelerate launch train_lora.py   --pretrained_model_name=<span class="text-green-400">"stabilityai/stable-video-diffusion-img2vid"</span>   --train_data_dir=<span class="text-green-400">"./my_videos"</span>   --rank=64   --learning_rate=1e-4   --num_train_epochs=100   --mixed_precision=fp16
 </pre>
@@ -428,9 +428,9 @@ accelerate launch train_lora.py   --pretrained_model_name=<span class="text-gree
 <li><strong>Audio Ducking:</strong> Background music volume drops automatically when speech is detected — creates professional sound design.</li>
 </ul>
 
-<h3 class="text-lg font-semibold text-white mt-8">7. Hardware Requirements</h3>
-<p>All of this runs on a single RTX 5060 8GB. Here's the breakdown:</p>
-<table class="w-full text-xs border-collapse my-3">
+<h3 class="text-2xl font-semibold text-white mt-8">7. Hardware Requirements</h3>
+<p class="text-base">All of this runs on a single RTX 5060 8GB. Here's the breakdown:</p>
+<table class="w-full text-sm border-collapse my-4">
 <tr class="border-b border-white/10"><td class="py-2 pr-4"><strong>Task</strong></td><td class="py-2 pr-4"><strong>Time on RTX 5060</strong></td><td class="py-2"><strong>VRAM Used</strong></td></tr>
 <tr class="border-b border-white/5"><td class="py-2 pr-4">Text-to-video (25 frames)</td><td class="py-2 pr-4 text-purple-400">~30s</td><td class="py-2">~6GB</td></tr>
 <tr class="border-b border-white/5"><td class="py-2 pr-4">Face swap per frame</td><td class="py-2 pr-4 text-purple-400">~50ms</td><td class="py-2">~1GB</td></tr>
@@ -438,8 +438,8 @@ accelerate launch train_lora.py   --pretrained_model_name=<span class="text-gree
 <tr><td class="py-2 pr-4">Motion interpolation (2x)</td><td class="py-2 pr-4 text-purple-400">~2s per second</td><td class="py-2">~2GB</td></tr>
 </table>
 
-<h3 class="text-lg font-semibold text-white mt-8">8. Quick Start — Your First Video</h3>
-<pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-3 overflow-x-auto my-3">
+<h3 class="text-2xl font-semibold text-white mt-8">8. Quick Start — Your First Video</h3>
+<pre class="text-sm text-gray-500 bg-black/30 rounded-lg p-4 overflow-x-auto my-4 leading-relaxed">
 <span class="text-gray-600"># 1. Install deps</span>
 pip install diffusers transformers accelerate xformers
 pip install insightface onnxruntime-gpu
@@ -456,23 +456,23 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
 </div>
 </div>
 <div class="glass rounded-2xl p-8 mb-12">
-<h2 class="text-2xl font-semibold mb-2">Full Minute-by-Minute Analysis</h2>
-<p class="text-gray-500 text-sm mb-6">Each minute sampled shows: frame image (click to zoom), Moondream vision description, and Whisper-transcribed dialogue from that segment. Scroll down for the complete timeline.</p>
+<h2 class="text-3xl font-semibold mb-2">Full Minute-by-Minute Analysis</h2>
+<p class="text-gray-500 text-base mb-6">Each minute sampled shows: frame image (click to zoom), Moondream vision description, Whisper-transcribed dialogue, and Tesseract OCR text. Use prev/next arrows in modal or keyboard.</p>
 
     <div class="mb-12" id="min-000">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 000</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 000</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_000.jpg', 0)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_000.jpg', 0)">
           <img src="frames_random/frame_000.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Man in sunglasses sitting in car driver seat</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Man in sunglasses sitting in car driver seat</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -489,17 +489,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-005">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 005</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 005</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_005.jpg', 1)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_005.jpg', 1)">
           <img src="frames_random/frame_005.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Computer screen showing video creation website landing page</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Computer screen showing video creation website landing page</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -516,17 +516,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-010">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 010</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 010</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_010.jpg', 2)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_010.jpg', 2)">
           <img src="frames_random/frame_010.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Black screen with white text: Part 1 - Architecture</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Black screen with white text: Part 1 - Architecture</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -543,17 +543,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-015">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 015</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 015</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_015.jpg', 3)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_015.jpg', 3)">
           <img src="frames_random/frame_015.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Computer screen with webpage showing text and code, presenter face visible</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Computer screen with webpage showing text and code, presenter face visible</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -570,17 +570,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-020">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 020</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 020</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_020.jpg', 4)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_020.jpg', 4)">
           <img src="frames_random/frame_020.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Computer screen with presenter face, online video tutorial</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Computer screen with presenter face, online video tutorial</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -597,17 +597,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-025">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 025</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 025</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_025.jpg', 5)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_025.jpg', 5)">
           <img src="frames_random/frame_025.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Computer screen showing code in programming language</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Computer screen showing code in programming language</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -624,17 +624,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-030">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 030</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 030</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_030.jpg', 6)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_030.jpg', 6)">
           <img src="frames_random/frame_030.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Web browser open, man wearing glasses</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Web browser open, man wearing glasses</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -651,17 +651,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-035">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 035</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 035</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_035.jpg', 7)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_035.jpg', 7)">
           <img src="frames_random/frame_035.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Webpage with text and code, focus on code block</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Webpage with text and code, focus on code block</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -678,17 +678,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-040">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 040</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 040</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_040.jpg', 8)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_040.jpg', 8)">
           <img src="frames_random/frame_040.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Webpage with text and image in browser</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Webpage with text and image in browser</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -705,17 +705,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-045">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 045</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 045</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_045.jpg', 9)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_045.jpg', 9)">
           <img src="frames_random/frame_045.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Webpage with man face wearing glasses</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Webpage with man face wearing glasses</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -732,17 +732,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-050">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 050</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 050</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_050.jpg', 10)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_050.jpg', 10)">
           <img src="frames_random/frame_050.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Open webpage with black background, code focus</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Open webpage with black background, code focus</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -759,17 +759,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-055">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 055</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 055</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_055.jpg', 11)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_055.jpg', 11)">
           <img src="frames_random/frame_055.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Webpage with text and images, code displayed</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Webpage with text and images, code displayed</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -786,17 +786,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-060">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 060</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 060</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_060.jpg', 12)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_060.jpg', 12)">
           <img src="frames_random/frame_060.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Open web browser, man wearing glasses</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Open web browser, man wearing glasses</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -813,17 +813,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-065">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 065</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 065</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_065.jpg', 13)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_065.jpg', 13)">
           <img src="frames_random/frame_065.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Open web browser, webpage displayed</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Open web browser, webpage displayed</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -840,17 +840,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-070">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 070</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 070</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_070.jpg', 14)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_070.jpg', 14)">
           <img src="frames_random/frame_070.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Web browser open, person face visible</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Web browser open, person face visible</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -867,17 +867,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-075">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 075</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 075</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_075.jpg', 15)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_075.jpg', 15)">
           <img src="frames_random/frame_075.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Code in text editor, programming language</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Code in text editor, programming language</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -894,17 +894,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-080">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 080</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 080</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_080.jpg', 16)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_080.jpg', 16)">
           <img src="frames_random/frame_080.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Web browser with green webpage displayed</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Web browser with green webpage displayed</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -921,17 +921,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-085">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 085</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 085</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_085.jpg', 17)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_085.jpg', 17)">
           <img src="frames_random/frame_085.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Open webpage with video playing, New York Times</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Open webpage with video playing, New York Times</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -948,17 +948,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-090">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 090</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 090</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_090.jpg', 18)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_090.jpg', 18)">
           <img src="frames_random/frame_090.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Webpage with man face, black background</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Webpage with man face, black background</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -975,17 +975,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-095">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 095</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 095</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_095.jpg', 19)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_095.jpg', 19)">
           <img src="frames_random/frame_095.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Open web browser, person face in corner</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Open web browser, person face in corner</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -1002,17 +1002,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-100">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 100</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 100</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_100.jpg', 20)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_100.jpg', 20)">
           <img src="frames_random/frame_100.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Web browser open, person profile visible</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Web browser open, person profile visible</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -1029,17 +1029,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-105">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 105</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 105</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_105.jpg', 21)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_105.jpg', 21)">
           <img src="frames_random/frame_105.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Error message on left side of screen</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Error message on left side of screen</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -1056,17 +1056,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-110">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 110</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 110</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_110.jpg', 22)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_110.jpg', 22)">
           <img src="frames_random/frame_110.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Online video editing software, Edit tab</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Online video editing software, Edit tab</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -1083,17 +1083,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-115">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 115</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 115</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_115.jpg', 23)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_115.jpg', 23)">
           <img src="frames_random/frame_115.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Web browser open, man wearing glasses</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Web browser open, man wearing glasses</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -1110,17 +1110,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-120">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 120</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 120</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_120.jpg', 24)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_120.jpg', 24)">
           <img src="frames_random/frame_120.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Webpage with man face wearing glasses</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Webpage with man face wearing glasses</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -1137,17 +1137,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-125">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 125</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 125</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_125.jpg', 25)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_125.jpg', 25)">
           <img src="frames_random/frame_125.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Open web browser with many tabs</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Open web browser with many tabs</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -1164,17 +1164,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-130">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 130</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 130</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_130.jpg', 26)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_130.jpg', 26)">
           <img src="frames_random/frame_130.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">Two images shown: astronaut suit person and another</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">Two images shown: astronaut suit person and another</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
@@ -1191,17 +1191,17 @@ ffmpeg -i input.mp4 -vf <span class="text-green-400">"lut3d=blockbuster.cube,min
     <div class="mb-12" id="min-135">
       <div class="flex items-center gap-3 mb-3">
         <div class="h-px flex-1 bg-white/5"></div>
-        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 135</span>
+        <span class="text-base font-semibold text-gray-500 tracking-widest uppercase">Minute 135</span>
         <div class="h-px flex-1 bg-white/5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_135.jpg', 27)">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-4 cursor-pointer" onclick="openModal('frames_random/frame_135.jpg', 27)">
           <img src="frames_random/frame_135.jpg" class="w-full rounded-xl">
-          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+          <div class="text-sm text-gray-600 text-center mt-2">Click to zoom</div>
         </div>
-        <div class="glass rounded-2xl p-4">
-          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
-          <p class="text-gray-400 text-sm leading-relaxed">PayPal.com website displayed</p>
+        <div class="glass rounded-2xl p-5">
+          <div class="text-sm text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-base leading-relaxed">PayPal.com website displayed</p>
           
         <div class="mt-2 pt-2 border-t border-white/5">
           <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
