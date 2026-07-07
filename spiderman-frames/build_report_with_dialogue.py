@@ -110,11 +110,11 @@ Spider-Man: Brand New Day</h1>
 <script>
 let ytPlayer;
 function onYouTubeIframeAPIReady() {
-  ytPlayer = new YT.Player('yt-player', {
+  ytPlayer = new YT.Player('yt-player', \x7b
     videoId: '{yt_id}',
-    playerVars: { autoplay: 1, mute: 1, rel: 0 },
-    events: { 'onReady': function(e) { } }
-  });
+    playerVars: \x7b autoplay: 1, mute: 1, rel: 0 \x7d,
+    events: \x7b 'onReady': function(e) \x7b \x7d \x7d
+  \x7d);
 }
 document.querySelectorAll('[data-seek]').forEach(el => {
   el.addEventListener('click', () => {
