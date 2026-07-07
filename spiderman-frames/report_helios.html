@@ -4227,8 +4227,7 @@ let ytPlayer;
 function onYouTubeIframeAPIReady() {
   ytPlayer = new YT.Player('yt-player', {
     videoId: '62bIsvRcPv0',
-    playerVars: { autoplay: 1, mute: 1, rel: 0 },
-    events: { 'onReady': function(e) { } }
+    playerVars: { rel: 0 }
   });
 }
 document.querySelectorAll('[data-seek]').forEach(el => {
