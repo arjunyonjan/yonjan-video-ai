@@ -1,0 +1,17 @@
+{
+  "scenes": [
+    {
+      "num": 1,
+      "start": 0.0,
+      "end": 6.29796
+    },
+    {
+      "num": 2,
+      "start": 6.29796,
+      "end": 19.4361
+    }
+  ],
+  "total_scenes": 44,
+  "clip_dir": "/home/arjun/projects/yonjan-video-ai/spiderman-frames/scene_clips",
+  "preview": "/home/arjun/projects/yonjan-video-ai/spiderman-frames/scene_preview.html"
+}
