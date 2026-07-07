@@ -2,9 +2,6 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>DIY Higgsfield — Build Your Own AI Video Platform</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config={darkMode:'class',theme:{extend:{colors:{darker:'#0a0a0f'}}}}
-</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0a0f;color:#e5e7eb;font-family:system-ui,sans-serif;line-height:1.7}
@@ -12,897 +9,196 @@ body{background:#0a0a0f;color:#e5e7eb;font-family:system-ui,sans-serif;line-heig
 </style>
 </head><body class="min-h-screen">
 <div class="max-w-7xl mx-auto px-4 py-8">
-
-<!-- Hero -->
 <div class="text-center mb-16">
 <h1 class="text-5xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent mb-4">DIY Higgsfield</h1>
-<p class="text-gray-400 text-lg max-w-2xl mx-auto">Build your own AI video generation platform from scratch. Reverse-engineered from a 2h 19m build video, minute by minute.</p>
-<div class="flex gap-4 justify-center mt-6 text-sm">
-<span class="px-4 py-2 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">100% Active Content</span>
-<span class="px-4 py-2 rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">139 min of 139 min</span>
-</div>
+<p class="text-gray-400 text-lg max-w-2xl mx-auto">Build your own AI video generation platform. Recreated from a 2h 19m build video — 28 frames sampled every 5 minutes.</p>
 </div>
 
-<!-- Architecture -->
 <div class="glass rounded-2xl p-8 mb-12">
 <h2 class="text-2xl font-semibold mb-4">Architecture</h2>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-<div class="p-4 rounded-xl bg-purple-500/5 border border-purple-500/10"><div class="text-2xl mb-1">🎬</div><div class="text-sm font-medium">Stable Video Diffusion</div><div class="text-xs text-gray-500">Text/Image → Video</div></div>
-<div class="p-4 rounded-xl bg-pink-500/5 border border-pink-500/10"><div class="text-2xl mb-1">🔄</div><div class="text-sm font-medium">Face Swap</div><div class="text-xs text-gray-500">InsightFace + Inswapper</div></div>
-<div class="p-4 rounded-xl bg-indigo-500/5 border border-indigo-500/10"><div class="text-2xl mb-1">👤</div><div class="text-sm font-medium">Character Consistency</div><div class="text-xs text-gray-500">IP-Adapter + LoRA</div></div>
-<div class="p-4 rounded-xl bg-amber-500/5 border border-amber-500/10"><div class="text-2xl mb-1">🎥</div><div class="text-sm font-medium">Cinema Pipeline</div><div class="text-xs text-gray-500">Color + Interpolation + Audio</div></div>
+<div class="p-4 rounded-xl bg-purple-500/5 border border-purple-500/10"><div class="text-2xl mb-1">🎬</div><div class="text-sm font-medium">Stable Video Diffusion</div></div>
+<div class="p-4 rounded-xl bg-pink-500/5 border border-pink-500/10"><div class="text-2xl mb-1">🔄</div><div class="text-sm font-medium">Face Swap</div></div>
+<div class="p-4 rounded-xl bg-indigo-500/5 border border-indigo-500/10"><div class="text-2xl mb-1">👤</div><div class="text-sm font-medium">Character Consistency</div></div>
+<div class="p-4 rounded-xl bg-amber-500/5 border border-amber-500/10"><div class="text-2xl mb-1">🎥</div><div class="text-sm font-medium">Cinema Pipeline</div></div>
 </div>
 </div>
 
-<!-- Build Steps -->
-<div class="glass rounded-2xl p-8 mb-12">
-<h2 class="text-2xl font-semibold mb-6">Build Steps (from the video)</h2>
-<div class="space-y-4">
-<div class="flex gap-4"><div class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-300 flex items-center justify-center shrink-0 font-bold">1</div><div><h3 class="font-medium">Environment Setup</h3><p class="text-sm text-gray-400">Python 3.12, CUDA 12.4, PyTorch 2.6, diffusers, transformers, accelerate, xformers</p><pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-2 mt-1">pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124</pre></div></div>
-<div class="flex gap-4"><div class="w-8 h-8 rounded-full bg-pink-500/20 text-pink-300 flex items-center justify-center shrink-0 font-bold">2</div><div><h3 class="font-medium">LoRA Fine-Tuning</h3><p class="text-sm text-gray-400">Train a Low-Rank Adapter on 10 custom videos to teach the model your style</p><pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-2 mt-1">accelerate launch train_lora.py --rank=64 --learning_rate=1e-4 --mixed_precision=fp16</pre></div></div>
-<div class="flex gap-4"><div class="w-8 h-8 rounded-full bg-indigo-500/20 text-indigo-300 flex items-center justify-center shrink-0 font-bold">3</div><div><h3 class="font-medium">Face Swap Pipeline</h3><p class="text-sm text-gray-400">InsightFace detection + inswapper_128 with temporal smoothing</p><pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-2 mt-1">pip install insightface onnxruntime-gpu</pre></div></div>
-<div class="flex gap-4"><div class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-300 flex items-center justify-center shrink-0 font-bold">4</div><div><h3 class="font-medium">Character Consistency</h3><p class="text-sm text-gray-400">IP-Adapter FaceID Plus — single reference image keeps same face across scenes</p></div></div>
-<div class="flex gap-4"><div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0 font-bold">5</div><div><h3 class="font-medium">Cinema Grade</h3><p class="text-sm text-gray-400">LUT color grading + RIFE motion interpolation + audio ducking</p><pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-2 mt-1">ffmpeg -i input.mp4 -vf "lut3d=blockbuster.cube" output.mp4</pre></div></div>
-</div>
-</div>
-
-<!-- Agent Instructions -->
-<div class="glass rounded-2xl p-8 mb-12">
-<h2 class="text-2xl font-semibold mb-4">Agent Instructions</h2>
-<p class="text-gray-400 text-sm mb-4">To build DIY Higgsfield, follow this pipeline in order:</p>
-<ol class="space-y-2 text-sm text-gray-400">
-<li class="flex gap-2"><span class="text-purple-400">1.</span> <span>Set up conda env with Python 3.12 + CUDA 12.4. Install diffusers, torch, xformers.</span></li>
-<li class="flex gap-2"><span class="text-pink-400">2.</span> <span>Download Stable Video Diffusion from HuggingFace. Test: generate a 2-second video from an image.</span></li>
-<li class="flex gap-2"><span class="text-indigo-400">3.</span> <span>Collect 10 short videos (5-15s each). Extract frames at 4fps. Train LoRA for 1 hour.</span></li>
-<li class="flex gap-2"><span class="text-amber-400">4.</span> <span>Install InsightFace. Download buffalo_l + inswapper_128. Implement frame-by-frame face swap with temporal smoothing.</span></li>
-<li class="flex gap-2"><span class="text-emerald-400">5.</span> <span>Install IP-Adapter FaceID. Generate 3 scenes with same character. Add background replacement via inpainting.</span></li>
-<li class="flex gap-2"><span class="text-red-400">6.</span> <span>Apply LUTs for color grading. Interpolate 24fps→60fps with RIFE. Sync audio with Wav2Lip.</span></li>
-</ol>
-</div>
-
-<!-- Minute Grid -->
 <div class="glass rounded-2xl p-8">
 <h2 class="text-2xl font-semibold mb-4">Minute-by-Minute Breakdown</h2>
-<p class="text-gray-500 text-sm mb-6">139 minutes analyzed — purple = active content, dimmed = loading/blank</p>
-<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-10 gap-2">
+<p class="text-gray-500 text-sm mb-6">28 samples across 139 minutes — Moondream vision + Whisper transcription</p>
+<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2">
 
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_000.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 000</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
+        <div class="text-xs text-gray-500 leading-tight">Man in sunglasses sitting in car driver seat</div>
         <div class="text-xs text-yellow-500/70 italic mt-1">"Let me set the context for the video."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_001.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 001</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"And generate long form 3-4 minute videos of famous Hollywood or Hollywood songs."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_002.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 002</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"In the end, the final app which looks very close to Higgsfield can be rebuilt by"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_003.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 003</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"The goal is that by the end of three hours, we have a fully functioning deployed"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_004.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 004</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"We'll be using the Devon CLI as our coding assistant today."</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_005.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 005</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
+        <div class="text-xs text-gray-500 leading-tight">Computer screen showing video creation website landing page</div>
         <div class="text-xs text-yellow-500/70 italic mt-1">"If needed add a bunch of reference videos,"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_006.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 006</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"You can expand this as much as you want."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_007.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 007</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"I feel there is some level of, you know, hero concept or, you know, hero dilemma"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_008.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 008</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"And once they do, they can generate individual timestamp to videos."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_009.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 009</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"To think of this like, you know, small music video, I don't really love it."</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_010.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 010</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
+        <div class="text-xs text-gray-500 leading-tight">Black screen with white text: Part 1 - Architecture</div>
         <div class="text-xs text-yellow-500/70 italic mt-1">"and also happy that, you know, I have a coding companion never in this case."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_011.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 011</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"our life is much easier, which has to stitch a few things together."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_012.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 012</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"audio files, all of them will be dumped in the object store,"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_013.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 013</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"But you'll be able to test using it,"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_014.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 014</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"and generate a video."</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_015.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 015</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
+        <div class="text-xs text-gray-500 leading-tight">Computer screen with webpage showing text and code, presenter face visible</div>
         <div class="text-xs text-yellow-500/70 italic mt-1">"Let me,"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_016.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 016</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"and eventually,"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_017.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 017</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"close to what Higgs field does."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_018.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 018</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"frantan that,"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_019.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 019</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"for now,"</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_020.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 020</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
+        <div class="text-xs text-gray-500 leading-tight">Computer screen with presenter face, online video tutorial</div>
         <div class="text-xs text-yellow-500/70 italic mt-1">"this thing right here,"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_021.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 021</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"also add dot mv dot example files,"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_022.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 022</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"text to,"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_023.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 023</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"we're able to select the model,"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_024.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 024</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"if you,"</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_025.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 025</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
+        <div class="text-xs text-gray-500 leading-tight">Computer screen showing code in programming language</div>
         <div class="text-xs text-yellow-500/70 italic mt-1">"I would assume this is able to do everything in one go,"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_026.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 026</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"probably high,"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_027.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 027</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"it is open source,"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_028.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 028</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"I still need to add,"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_029.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 029</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"I really thought Petroth was open source,"</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_030.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 030</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
+        <div class="text-xs text-gray-500 leading-tight">Web browser open, man wearing glasses</div>
         <div class="text-xs text-yellow-500/70 italic mt-1">"mono-repolio,"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_031.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 031</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Create new credentials or client ID for a web application."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_032.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 032</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"We have one in the DB folder which is totally fine."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_033.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 033</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Probably what it means."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_034.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 034</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"And just add them here for now."</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_035.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 035</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
+        <div class="text-xs text-gray-500 leading-tight">Webpage with text and code, focus on code block</div>
         <div class="text-xs text-yellow-500/70 italic mt-1">"A Google client ID can secret and open router API key."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_036.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 036</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"The thing finally works."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_037.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 037</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"9000 slash the video."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_038.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 038</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Always a good idea."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_039.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 039</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"All I've done from there is I tested."</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_040.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 040</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
+        <div class="text-xs text-gray-500 leading-tight">Webpage with text and image in browser</div>
         <div class="text-xs text-yellow-500/70 italic mt-1">"An image tab and a face swap tab."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_041.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 041</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Resolution 500."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_042.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 042</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"I don't know."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_043.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 043</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Given that this is done, the next big part is going to be writing after it's don"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_044.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 044</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"which is templates."</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_045.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 045</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"And if they want, replace their face in their video and become the main characte"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_046.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 046</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"We want to allow admins to create a template for longer videos."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_047.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 047</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"They should be able to add one audio track."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_048.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 048</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"That's fine."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_049.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 049</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Before we ask the model to generate the video."</div>
+        <div class="text-xs text-gray-500 leading-tight">Webpage with man face wearing glasses</div>
+        <div class="text-xs text-yellow-500/70 italic mt-1">"And if they want, replace their face in their video and become the main character of that specific v"</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_050.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 050</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
+        <div class="text-xs text-gray-500 leading-tight">Open webpage with black background, code focus</div>
         <div class="text-xs text-yellow-500/70 italic mt-1">"And if they want, regenerate the video with their own avatar."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_051.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 051</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"finalize slash export templates."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_052.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 052</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"For now only let them choose one to two avatars."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_053.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 053</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"There we go. Let's get into it. Let's see what it does."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_054.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 054</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"How should the admins be determined? I think let's have a DB role on user. Let m"</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_055.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 055</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
+        <div class="text-xs text-gray-500 leading-tight">Webpage with text and images, code displayed</div>
         <div class="text-xs text-yellow-500/70 italic mt-1">"Yes, it's absurd."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_056.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 056</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"I added admin e-mails. I'm assuming that's an A and V variable. It has a bunch o"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_057.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 057</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"the nest is this more. I'm assuming it's not written very well right now. Fronte"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_058.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 058</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"I think one million tokens is enough. If this task took like 170K tokens from wh"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_059.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 059</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Beautiful."</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_060.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 060</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
+        <div class="text-xs text-gray-500 leading-tight">Open web browser, man wearing glasses</div>
         <div class="text-xs text-yellow-500/70 italic mt-1">"Music video."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_061.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 061</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Let's see."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_062.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 062</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Let's see."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_063.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 063</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"This is not just for image now."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_064.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 064</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Yeah, yeah."</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_065.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 065</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
+        <div class="text-xs text-gray-500 leading-tight">Open web browser, webpage displayed</div>
         <div class="text-xs text-yellow-500/70 italic mt-1">"7 when he p's good, 16 to 9 is good."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_066.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 066</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"or template generation."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_067.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 067</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Because then the template isn't generic anymore."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_068.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 068</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Actually, I can just resume this session."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_069.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 069</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"All right."</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_070.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 070</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
+        <div class="text-xs text-gray-500 leading-tight">Web browser open, person face visible</div>
         <div class="text-xs text-yellow-500/70 italic mt-1">"Now let me add the very first track for four seconds."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_071.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 071</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"There should be a button called big."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_072.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 072</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"And ask it to implement this spec."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_073.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 073</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Beautiful."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_074.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 074</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"And we owe 3 again."</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_075.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 075</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
+        <div class="text-xs text-gray-500 leading-tight">Code in text editor, programming language</div>
         <div class="text-xs text-yellow-500/70 italic mt-1">"We should also probably."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_076.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 076</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"That should be good enough."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_077.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 077</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"API keys."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_078.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 078</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Fuller is not supported."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_079.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 079</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"The dog service."</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_080.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 080</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
+        <div class="text-xs text-gray-500 leading-tight">Web browser with green webpage displayed</div>
         <div class="text-xs text-yellow-500/70 italic mt-1">"At this point, I should add another video."</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_081.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 081</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"while this is happening I have a bunch of more changes as expected this is the p"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_082.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 082</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"all right that should do it let's ask them to implement this next I'm still goin"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_083.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 083</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"work now this time and maybe a duration of show the duration as I expand it so o"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_084.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 084</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"bake it actually bake the you know the colors the textures on top of it so it's "</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_085.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 085</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"back in restart refresh this one and let's see I can can I track them or I can't"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_086.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 086</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"excited for some more things now let's create 13 timeline editor updates"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_087.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 087</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"cropping that'll be good one thing is I should I should be able to start"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_088.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 088</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"dragging is also not working neither"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_089.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 089</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"issues that have found so I'm just going to keep writing them in a spec file I t"</div>
+        <div class="text-xs text-gray-500 leading-tight">Open webpage with video playing, New York Times</div>
+        <div class="text-xs text-yellow-500/70 italic mt-1">"back in restart refresh this one and let's see I can can I track them or I can't track them around c"</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_090.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 090</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"baked during export though ones that already are should just be picked from the "</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_091.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 091</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"smart I give it the wrong spec file"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_092.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 092</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"all right seems like it is done and it's that's what it says"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_093.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 093</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"guys it does work that one prompt whatever the last spec was for us I think 13 o"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_094.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 094</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"so here a place should actually play it but you get the idea it's fine"</div>
+        <div class="text-xs text-gray-500 leading-tight">Webpage with man face, black background</div>
+        <div class="text-xs text-yellow-500/70 italic mt-1">"baked during export though ones that already are should just be picked from the bb slash minier"</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_095.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 095</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"beautiful I think that's exactly what I needed a rendering export work which pro"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_096.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 096</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"honestly alright new avatar created now let's say someone comes to my website an"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_097.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 097</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"the template generation functionalities broken this one right here I can try one"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_098.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 098</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"like it is simply using the original video certainly avatar we should start a lo"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_099.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 099</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"router no need for the process to be sequentially and that should do it"</div>
+        <div class="text-xs text-gray-500 leading-tight">Open web browser, person face in corner</div>
+        <div class="text-xs text-yellow-500/70 italic mt-1">"beautiful I think that's exactly what I needed a rendering export work which probably means"</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_100.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 100</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"that's AI generated beautiful and this one generated are fixed hopefully the tem"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_101.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 101</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"ishion now hopefully there are three parallel requests that have gone out and on"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_102.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 102</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"be the main character of the video now comes the interesting part we have to do "</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_103.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 103</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"get and not get committed I should have committed this over time let's find vers"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_104.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 104</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"access to it already this is the devine UI and the good thing about the devine U"</div>
+        <div class="text-xs text-gray-500 leading-tight">Web browser open, person profile visible</div>
+        <div class="text-xs text-yellow-500/70 italic mt-1">"that's AI generated beautiful and this one generated are fixed hopefully the template creation"</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_105.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 105</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"for end users and not for admins um who generate templates um put a same uh figu"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_106.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 106</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"document all your learnings in a new spec file and finally commit to the main re"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_107.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 107</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"so I wouldn't want that functionality broken I would also choose like a"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_108.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 108</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"be couple services a bit right now what's happening is everything is running on "</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_109.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 109</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"developers performing locally we believe it there I will see you guys tomorrow w"</div>
+        <div class="text-xs text-gray-500 leading-tight">Error message on left side of screen</div>
+        <div class="text-xs text-yellow-500/70 italic mt-1">"for end users and not for admins um who generate templates um put a same uh figure out the best"</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_110.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 110</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"cool let's do a rebuild probably only need the front end but let me do both the "</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_111.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 111</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"and then we'll go from there let me add 16 front end overhaul dot md"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_112.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 112</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"I don't know when this came a why this came uh probably because of something I d"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_113.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 113</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"I understand you know as much UI as no I know I tried to add those you know base"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_114.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 114</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"okay do have shakes photo let me use that cool let me call the avatar shake let "</div>
+        <div class="text-xs text-gray-500 leading-tight">Online video editing software, Edit tab</div>
+        <div class="text-xs text-yellow-500/70 italic mt-1">"cool let's do a rebuild probably only need the front end but let me do both the front end and the"</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_115.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 115</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"off a bunch of parallel tasks while I spend my time building uh the very first y"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_116.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 116</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"they can tag Devon directly on the PR as well but this should work. All right my"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_117.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 117</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"which ideally should be done locally only I'm used to it locally the hex field"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_118.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 118</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"of videos that let me just pull this on the left actually show the power of hex "</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_119.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 119</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"prompts model etc and show them on our website that way we don't have to spend c"</div>
+        <div class="text-xs text-gray-500 leading-tight">Web browser open, man wearing glasses</div>
+        <div class="text-xs text-yellow-500/70 italic mt-1">"off a bunch of parallel tasks while I spend my time building uh the very first you know template for"</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_120.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 120</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"you can do it here you can do it inside the terminal I'm just a terminal fan so "</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_121.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 121</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"videos was hard but let me show you what we have this is not Hicksfield folks th"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_122.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 122</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"I've added um so these other currently available templates let me open the handl"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_123.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 123</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"it becomes less manual and you know yeah I can also replace some parts of it the"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_124.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 124</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"this is the start frame and this is the end frame okay this is the start frame t"</div>
+        <div class="text-xs text-gray-500 leading-tight">Webpage with man face wearing glasses</div>
+        <div class="text-xs text-yellow-500/70 italic mt-1">"you can do it here you can do it inside the terminal I'm just a terminal fan so I'm going to"</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_125.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 125</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"take this it will look bad I will become the second person also so you know this"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_126.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 126</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"where I selected face swap for the start frame and the end frame so this is what"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_127.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 127</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"they can generate as many renders as they want each render over here will be ver"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_128.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 128</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"original Karanozla features which is more the on top so it doesn't look great it"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_129.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 129</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"to replace the whole video and ideally I would just have for this this is a manu"</div>
+        <div class="text-xs text-gray-500 leading-tight">Open web browser with many tabs</div>
+        <div class="text-xs text-yellow-500/70 italic mt-1">"take this it will look bad I will become the second person also so you know this person this"</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_130.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 130</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"video on hex field this is the prompt for it I generated directly over here this"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_131.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 131</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"the architecture now looks something like this there is a front end hosted on di"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_132.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 132</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"be free in the long run or cheaper in the long run to just pay ninety six dollar"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_133.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 133</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"then I'm going to add you know my own set of things here"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_134.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 134</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"yeah there you go that's the IP it gave me as well it also changes everything in"</div>
+        <div class="text-xs text-gray-500 leading-tight">Two images shown: astronaut suit person and another</div>
+        <div class="text-xs text-yellow-500/70 italic mt-1">"video on hex field this is the prompt for it I generated directly over here this is a video"</div>
     </div>
     <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
         <img src="frames_random/frame_135.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 135</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"this is what it looks like if you use Razer Pay and test mode it just tells you "</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_136.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 136</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"any references start frames and frames I have turned on audio let me select like"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_137.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 137</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"yeah but it is red adventure this like a 15 second video I was a smaller um if y"</div>
-    </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
-        <img src="frames_random/frame_138.jpg" class="w-full rounded-lg mb-1" loading="lazy">
-        <div class="text-xs text-gray-400">Min 138</div>
-        <div class="text-xs text-gray-500 leading-tight">[No Moondream description available — model was removed between sessions]</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"new auth secrets with new redirect URLs for the new website other than that the "</div>
+        <div class="text-xs text-gray-500 leading-tight">PayPal.com website displayed</div>
+        <div class="text-xs text-yellow-500/70 italic mt-1">"this is what it looks like if you use Razer Pay and test mode it just tells you do you want this"</div>
     </div>
 </div>
 </div>
-
 <div class="text-center text-gray-600 text-xs mt-12 pb-8">Built on Helios (RTX 5060) — Fuche AI — 2026-07-07</div>
 </div>
 </body></html>
