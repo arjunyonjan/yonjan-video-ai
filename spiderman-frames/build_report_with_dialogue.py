@@ -55,7 +55,7 @@ for fname in frame_names:
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame {num}s</span>
+      <span data-seek="{num}" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame {num}s</span>
       <span class="text-xs text-gray-600">{ms/1000:.1f}s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -75,22 +75,46 @@ for fname in frame_names:
     </div>
   </div>'''
 
-html = '''<!DOCTYPE html><html lang="en"><head>
+yt_id = "62bIsvRcPv0"
+html = f'''<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Spider-Man BND Trailer - AI Analysis</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<style>body{background:#0a0a0f;color:#e5e7eb;font-family:system-ui,sans-serif}
-.glass{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px)}
+<style>body{{background:#0a0a0f;color:#e5e7eb;font-family:system-ui,sans-serif}}
+.glass{{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px)}}
 </style></head><body class="min-h-screen">
-<div class="max-w-6xl mx-auto px-4 py-8">
-<div class="text-center mb-16">
+<div class="max-w-7xl mx-auto px-4 py-8">
+<div class="text-center mb-8">
 <h1 class="text-4xl font-bold bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-transparent">
 Spider-Man: Brand New Day</h1>
 <p class="text-gray-500 mt-2">AI Analysis on RTX 5060</p>
 <p class="text-gray-600 text-sm mt-1">162 frames · Moondream vision · Tesseract OCR · Whisper STT</p>
 </div>
-<div id="frames">''' + frames_html + '''</div>
-</div></body></html>'''
+<div class="flex flex-col lg:flex-row gap-6">
+  <div id="trailer-col" class="w-full lg:w-[480px] shrink-0">
+    <div class="sticky top-4 z-10">
+      <button onclick="document.getElementById('trailer-col').classList.toggle('hidden')" class="lg:hidden text-xs text-gray-500 mb-2 bg-white/5 px-3 py-1 rounded-full w-full">Toggle Trailer</button>
+      <div class="aspect-video rounded-2xl overflow-hidden glass">
+        <iframe id="yt-player" width="100%" height="100%" src="https://www.youtube.com/embed/{yt_id}?enablejsapi=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="w-full h-full"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="flex-1 min-w-0">
+    <button onclick="document.getElementById('trailer-col').classList.toggle('hidden')" class="hidden lg:block text-xs text-gray-500 mb-3 bg-white/5 px-3 py-1 rounded-full hover:bg-white/10 transition">Hide Trailer</button>
+    <div id="frames">''' + frames_html + '''</div>
+  </div>
+</div>
+</div>
+<script>
+const player = document.getElementById('yt-player');
+document.querySelectorAll('[data-seek]').forEach(el => {{
+  el.addEventListener('click', () => {{
+    const t = el.dataset.seek;
+    player.src = player.src.replace(/[?&]start=\\d+/,'') + '&start=' + t;
+  }});
+}});
+</script>
+</body></html>'''
 
 with open(OUTPUT, "w") as f:
     f.write(html)

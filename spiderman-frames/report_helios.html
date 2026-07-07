@@ -5,18 +5,29 @@
 <style>body{background:#0a0a0f;color:#e5e7eb;font-family:system-ui,sans-serif}
 .glass{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px)}
 </style></head><body class="min-h-screen">
-<div class="max-w-6xl mx-auto px-4 py-8">
-<div class="text-center mb-16">
+<div class="max-w-7xl mx-auto px-4 py-8">
+<div class="text-center mb-8">
 <h1 class="text-4xl font-bold bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-transparent">
 Spider-Man: Brand New Day</h1>
 <p class="text-gray-500 mt-2">AI Analysis on RTX 5060</p>
 <p class="text-gray-600 text-sm mt-1">162 frames · Moondream vision · Tesseract OCR · Whisper STT</p>
 </div>
-<div id="frames">
+<div class="flex flex-col lg:flex-row gap-6">
+  <div id="trailer-col" class="w-full lg:w-[480px] shrink-0">
+    <div class="sticky top-4 z-10">
+      <button onclick="document.getElementById('trailer-col').classList.toggle('hidden')" class="lg:hidden text-xs text-gray-500 mb-2 bg-white/5 px-3 py-1 rounded-full w-full">Toggle Trailer</button>
+      <div class="aspect-video rounded-2xl overflow-hidden glass">
+        <iframe id="yt-player" width="100%" height="100%" src="https://www.youtube.com/embed/62bIsvRcPv0?enablejsapi=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="w-full h-full"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="flex-1 min-w-0">
+    <button onclick="document.getElementById('trailer-col').classList.toggle('hidden')" class="hidden lg:block text-xs text-gray-500 mb-3 bg-white/5 px-3 py-1 rounded-full hover:bg-white/10 transition">Hide Trailer</button>
+    <div id="frames">
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 001s</span>
+      <span data-seek="001" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 001s</span>
       <span class="text-xs text-gray-600">26.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -38,7 +49,7 @@ Spider-Man: Brand New Day</h1>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 002s</span>
+      <span data-seek="002" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 002s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -60,7 +71,7 @@ Spider-Man: Brand New Day</h1>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 003s</span>
+      <span data-seek="003" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 003s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -85,7 +96,7 @@ Spider-Man: Brand New Day</h1>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 004s</span>
+      <span data-seek="004" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 004s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -110,7 +121,7 @@ Spider-Man: Brand New Day</h1>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 005s</span>
+      <span data-seek="005" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 005s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -135,7 +146,7 @@ Spider-Man: Brand New Day</h1>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 006s</span>
+      <span data-seek="006" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 006s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -160,7 +171,7 @@ Spider-Man: Brand New Day</h1>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 007s</span>
+      <span data-seek="007" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 007s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -182,7 +193,7 @@ Spider-Man: Brand New Day</h1>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 008s</span>
+      <span data-seek="008" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 008s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -207,7 +218,7 @@ Spider-Man: Brand New Day</h1>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 009s</span>
+      <span data-seek="009" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 009s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -232,7 +243,7 @@ Spider-Man: Brand New Day</h1>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 010s</span>
+      <span data-seek="010" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 010s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -262,7 +273,7 @@ tte ie aR Were.</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 011s</span>
+      <span data-seek="011" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 011s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -292,7 +303,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 012s</span>
+      <span data-seek="012" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 012s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -320,7 +331,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 013s</span>
+      <span data-seek="013" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 013s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -345,7 +356,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 014s</span>
+      <span data-seek="014" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 014s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -370,7 +381,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 015s</span>
+      <span data-seek="015" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 015s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -395,7 +406,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 016s</span>
+      <span data-seek="016" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 016s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -420,7 +431,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 017s</span>
+      <span data-seek="017" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 017s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -445,7 +456,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 018s</span>
+      <span data-seek="018" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 018s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -470,7 +481,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 019s</span>
+      <span data-seek="019" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 019s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -495,7 +506,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 020s</span>
+      <span data-seek="020" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 020s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -523,7 +534,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 021s</span>
+      <span data-seek="021" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 021s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -551,7 +562,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 022s</span>
+      <span data-seek="022" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 022s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -576,7 +587,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 023s</span>
+      <span data-seek="023" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 023s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -601,7 +612,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 024s</span>
+      <span data-seek="024" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 024s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -626,7 +637,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 025s</span>
+      <span data-seek="025" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 025s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -648,7 +659,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 026s</span>
+      <span data-seek="026" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 026s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -670,7 +681,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 027s</span>
+      <span data-seek="027" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 027s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -692,7 +703,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 028s</span>
+      <span data-seek="028" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 028s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -714,7 +725,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 029s</span>
+      <span data-seek="029" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 029s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -739,7 +750,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 030s</span>
+      <span data-seek="030" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 030s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -764,7 +775,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 031s</span>
+      <span data-seek="031" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 031s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -789,7 +800,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 032s</span>
+      <span data-seek="032" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 032s</span>
       <span class="text-xs text-gray-600">1.0s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -814,7 +825,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 033s</span>
+      <span data-seek="033" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 033s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -839,7 +850,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 034s</span>
+      <span data-seek="034" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 034s</span>
       <span class="text-xs text-gray-600">1.1s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -864,7 +875,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 035s</span>
+      <span data-seek="035" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 035s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -889,7 +900,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 036s</span>
+      <span data-seek="036" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 036s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -914,7 +925,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 037s</span>
+      <span data-seek="037" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 037s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -936,7 +947,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 038s</span>
+      <span data-seek="038" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 038s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -958,7 +969,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 039s</span>
+      <span data-seek="039" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 039s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -983,7 +994,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 040s</span>
+      <span data-seek="040" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 040s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1008,7 +1019,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 041s</span>
+      <span data-seek="041" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 041s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1033,7 +1044,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 042s</span>
+      <span data-seek="042" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 042s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1058,7 +1069,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 043s</span>
+      <span data-seek="043" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 043s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1083,7 +1094,7 @@ ote</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 044s</span>
+      <span data-seek="044" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 044s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1118,7 +1129,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 045s</span>
+      <span data-seek="045" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 045s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1143,7 +1154,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 046s</span>
+      <span data-seek="046" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 046s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1165,7 +1176,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 047s</span>
+      <span data-seek="047" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 047s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1190,7 +1201,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 048s</span>
+      <span data-seek="048" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 048s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1215,7 +1226,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 049s</span>
+      <span data-seek="049" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 049s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1240,7 +1251,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 050s</span>
+      <span data-seek="050" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 050s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1265,7 +1276,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 051s</span>
+      <span data-seek="051" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 051s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1287,7 +1298,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 052s</span>
+      <span data-seek="052" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 052s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1315,7 +1326,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 053s</span>
+      <span data-seek="053" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 053s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1343,7 +1354,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 054s</span>
+      <span data-seek="054" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 054s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1368,7 +1379,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 055s</span>
+      <span data-seek="055" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 055s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1393,7 +1404,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 056s</span>
+      <span data-seek="056" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 056s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1421,7 +1432,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 057s</span>
+      <span data-seek="057" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 057s</span>
       <span class="text-xs text-gray-600">1.1s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1446,7 +1457,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 058s</span>
+      <span data-seek="058" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 058s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1471,7 +1482,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 059s</span>
+      <span data-seek="059" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 059s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1493,7 +1504,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 060s</span>
+      <span data-seek="060" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 060s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1515,7 +1526,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 061s</span>
+      <span data-seek="061" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 061s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1540,7 +1551,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 062s</span>
+      <span data-seek="062" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 062s</span>
       <span class="text-xs text-gray-600">1.0s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1565,7 +1576,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 063s</span>
+      <span data-seek="063" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 063s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1590,7 +1601,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 064s</span>
+      <span data-seek="064" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 064s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1615,7 +1626,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 065s</span>
+      <span data-seek="065" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 065s</span>
       <span class="text-xs text-gray-600">1.0s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1640,7 +1651,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 066s</span>
+      <span data-seek="066" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 066s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1665,7 +1676,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 067s</span>
+      <span data-seek="067" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 067s</span>
       <span class="text-xs text-gray-600">1.1s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1687,7 +1698,7 @@ I</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 068s</span>
+      <span data-seek="068" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 068s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1720,7 +1731,7 @@ oT
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 069s</span>
+      <span data-seek="069" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 069s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1745,7 +1756,7 @@ oT
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 070s</span>
+      <span data-seek="070" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 070s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1774,7 +1785,7 @@ i
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 071s</span>
+      <span data-seek="071" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 071s</span>
       <span class="text-xs text-gray-600">1.0s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1803,7 +1814,7 @@ Parkour vay bethe Web-Swinger? ===</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 072s</span>
+      <span data-seek="072" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 072s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1828,7 +1839,7 @@ Parkour vay bethe Web-Swinger? ===</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 073s</span>
+      <span data-seek="073" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 073s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1853,7 +1864,7 @@ Parkour vay bethe Web-Swinger? ===</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 074s</span>
+      <span data-seek="074" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 074s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1881,7 +1892,7 @@ Parkour vay bethe Web-Swinger? ===</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 075s</span>
+      <span data-seek="075" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 075s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1906,7 +1917,7 @@ Parkour vay bethe Web-Swinger? ===</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 076s</span>
+      <span data-seek="076" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 076s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1931,7 +1942,7 @@ Parkour vay bethe Web-Swinger? ===</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 077s</span>
+      <span data-seek="077" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 077s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1956,7 +1967,7 @@ Parkour vay bethe Web-Swinger? ===</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 078s</span>
+      <span data-seek="078" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 078s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -1981,7 +1992,7 @@ Parkour vay bethe Web-Swinger? ===</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 079s</span>
+      <span data-seek="079" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 079s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2016,7 +2027,7 @@ edi itnwl sa.
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 080s</span>
+      <span data-seek="080" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 080s</span>
       <span class="text-xs text-gray-600">1.0s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2041,7 +2052,7 @@ edi itnwl sa.
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 081s</span>
+      <span data-seek="081" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 081s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2066,7 +2077,7 @@ edi itnwl sa.
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 082s</span>
+      <span data-seek="082" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 082s</span>
       <span class="text-xs text-gray-600">1.0s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2091,7 +2102,7 @@ edi itnwl sa.
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 083s</span>
+      <span data-seek="083" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 083s</span>
       <span class="text-xs text-gray-600">1.0s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2116,7 +2127,7 @@ edi itnwl sa.
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 084s</span>
+      <span data-seek="084" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 084s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2141,7 +2152,7 @@ edi itnwl sa.
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 085s</span>
+      <span data-seek="085" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 085s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2166,7 +2177,7 @@ edi itnwl sa.
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 086s</span>
+      <span data-seek="086" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 086s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2191,7 +2202,7 @@ edi itnwl sa.
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 087s</span>
+      <span data-seek="087" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 087s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2216,7 +2227,7 @@ edi itnwl sa.
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 088s</span>
+      <span data-seek="088" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 088s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2241,7 +2252,7 @@ edi itnwl sa.
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 089s</span>
+      <span data-seek="089" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 089s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2267,7 +2278,7 @@ edi itnwl sa.
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 090s</span>
+      <span data-seek="090" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 090s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2296,7 +2307,7 @@ Les</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 091s</span>
+      <span data-seek="091" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 091s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2324,7 +2335,7 @@ Les</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 092s</span>
+      <span data-seek="092" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 092s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2349,7 +2360,7 @@ Les</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 093s</span>
+      <span data-seek="093" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 093s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2374,7 +2385,7 @@ Les</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 094s</span>
+      <span data-seek="094" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 094s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2399,7 +2410,7 @@ Les</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 095s</span>
+      <span data-seek="095" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 095s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2424,7 +2435,7 @@ Les</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 096s</span>
+      <span data-seek="096" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 096s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2449,7 +2460,7 @@ Les</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 097s</span>
+      <span data-seek="097" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 097s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2474,7 +2485,7 @@ Les</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 098s</span>
+      <span data-seek="098" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 098s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2499,7 +2510,7 @@ Les</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 099s</span>
+      <span data-seek="099" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 099s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2521,7 +2532,7 @@ Les</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 100s</span>
+      <span data-seek="100" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 100s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2546,7 +2557,7 @@ Les</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 101s</span>
+      <span data-seek="101" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 101s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2579,7 +2590,7 @@ a o.</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 102s</span>
+      <span data-seek="102" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 102s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2604,7 +2615,7 @@ a o.</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 103s</span>
+      <span data-seek="103" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 103s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2629,7 +2640,7 @@ a o.</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 104s</span>
+      <span data-seek="104" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 104s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2654,7 +2665,7 @@ a o.</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 105s</span>
+      <span data-seek="105" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 105s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2679,7 +2690,7 @@ a o.</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 106s</span>
+      <span data-seek="106" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 106s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2712,7 +2723,7 @@ a o.</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 107s</span>
+      <span data-seek="107" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 107s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2737,7 +2748,7 @@ a o.</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 108s</span>
+      <span data-seek="108" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 108s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2762,7 +2773,7 @@ a o.</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 109s</span>
+      <span data-seek="109" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 109s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2787,7 +2798,7 @@ a o.</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 110s</span>
+      <span data-seek="110" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 110s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2812,7 +2823,7 @@ a o.</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 111s</span>
+      <span data-seek="111" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 111s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2837,7 +2848,7 @@ a o.</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 112s</span>
+      <span data-seek="112" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 112s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2862,7 +2873,7 @@ a o.</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 113s</span>
+      <span data-seek="113" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 113s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2887,7 +2898,7 @@ a o.</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 114s</span>
+      <span data-seek="114" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 114s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2912,7 +2923,7 @@ a o.</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 115s</span>
+      <span data-seek="115" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 115s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2937,7 +2948,7 @@ a o.</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 116s</span>
+      <span data-seek="116" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 116s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2974,7 +2985,7 @@ _</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 117s</span>
+      <span data-seek="117" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 117s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -2999,7 +3010,7 @@ _</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 118s</span>
+      <span data-seek="118" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 118s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3028,7 +3039,7 @@ _</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 119s</span>
+      <span data-seek="119" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 119s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3053,7 +3064,7 @@ _</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 120s</span>
+      <span data-seek="120" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 120s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3075,7 +3086,7 @@ _</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 121s</span>
+      <span data-seek="121" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 121s</span>
       <span class="text-xs text-gray-600">1.0s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3100,7 +3111,7 @@ _</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 122s</span>
+      <span data-seek="122" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 122s</span>
       <span class="text-xs text-gray-600">1.3s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3125,7 +3136,7 @@ _</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 123s</span>
+      <span data-seek="123" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 123s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3150,7 +3161,7 @@ _</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 124s</span>
+      <span data-seek="124" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 124s</span>
       <span class="text-xs text-gray-600">1.1s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3175,7 +3186,7 @@ _</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 125s</span>
+      <span data-seek="125" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 125s</span>
       <span class="text-xs text-gray-600">1.0s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3200,7 +3211,7 @@ _</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 126s</span>
+      <span data-seek="126" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 126s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3230,7 +3241,7 @@ jill www</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 127s</span>
+      <span data-seek="127" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 127s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3252,7 +3263,7 @@ jill www</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 128s</span>
+      <span data-seek="128" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 128s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3277,7 +3288,7 @@ jill www</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 129s</span>
+      <span data-seek="129" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 129s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3302,7 +3313,7 @@ jill www</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 130s</span>
+      <span data-seek="130" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 130s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3335,7 +3346,7 @@ es
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 131s</span>
+      <span data-seek="131" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 131s</span>
       <span class="text-xs text-gray-600">1.0s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3366,7 +3377,7 @@ ir
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 132s</span>
+      <span data-seek="132" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 132s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3388,7 +3399,7 @@ ir
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 133s</span>
+      <span data-seek="133" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 133s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3410,7 +3421,7 @@ ir
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 134s</span>
+      <span data-seek="134" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 134s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3435,7 +3446,7 @@ ir
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 135s</span>
+      <span data-seek="135" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 135s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3460,7 +3471,7 @@ ir
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 136s</span>
+      <span data-seek="136" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 136s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3485,7 +3496,7 @@ ir
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 137s</span>
+      <span data-seek="137" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 137s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3510,7 +3521,7 @@ ir
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 138s</span>
+      <span data-seek="138" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 138s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3535,7 +3546,7 @@ ir
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 139s</span>
+      <span data-seek="139" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 139s</span>
       <span class="text-xs text-gray-600">1.0s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3560,7 +3571,7 @@ ir
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 140s</span>
+      <span data-seek="140" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 140s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3585,7 +3596,7 @@ ir
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 141s</span>
+      <span data-seek="141" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 141s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3610,7 +3621,7 @@ ir
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 142s</span>
+      <span data-seek="142" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 142s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3640,7 +3651,7 @@ Z</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 143s</span>
+      <span data-seek="143" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 143s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3665,7 +3676,7 @@ Z</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 144s</span>
+      <span data-seek="144" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 144s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3690,7 +3701,7 @@ Z</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 145s</span>
+      <span data-seek="145" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 145s</span>
       <span class="text-xs text-gray-600">0.9s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3715,7 +3726,7 @@ Z</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 146s</span>
+      <span data-seek="146" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 146s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3740,7 +3751,7 @@ Z</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 147s</span>
+      <span data-seek="147" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 147s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3765,7 +3776,7 @@ Z</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 148s</span>
+      <span data-seek="148" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 148s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3790,7 +3801,7 @@ Z</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 149s</span>
+      <span data-seek="149" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 149s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3815,7 +3826,7 @@ Z</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 150s</span>
+      <span data-seek="150" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 150s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3837,7 +3848,7 @@ Z</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 151s</span>
+      <span data-seek="151" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 151s</span>
       <span class="text-xs text-gray-600">1.0s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3859,7 +3870,7 @@ Z</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 152s</span>
+      <span data-seek="152" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 152s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3881,7 +3892,7 @@ Z</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 153s</span>
+      <span data-seek="153" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 153s</span>
       <span class="text-xs text-gray-600">1.0s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3908,7 +3919,7 @@ NO</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 154s</span>
+      <span data-seek="154" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 154s</span>
       <span class="text-xs text-gray-600">0.6s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3942,7 +3953,7 @@ senate a Be appropiate fr Che eer 1] S| @ MARVEL nda rated chart nane:© 4 2126 
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 155s</span>
+      <span data-seek="155" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 155s</span>
       <span class="text-xs text-gray-600">0.8s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -3978,7 +3989,7 @@ See Mata a Be napproiate r Che eer 1] >] AVE anda ted charac nane:© 4 2126 MARV
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 156s</span>
+      <span data-seek="156" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 156s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -4011,7 +4022,7 @@ TICKETS ON SALE NOW SpideyTracker.com</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 157s</span>
+      <span data-seek="157" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 157s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -4044,7 +4055,7 @@ TICKETS ON SALE NOW SpideyTracker.com</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 158s</span>
+      <span data-seek="158" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 158s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -4077,7 +4088,7 @@ TICKETS ON SALE NOW SpideyTracker.com</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 159s</span>
+      <span data-seek="159" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 159s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -4110,7 +4121,7 @@ TICKETS ON SALE NOW SpideyTracker.com</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 160s</span>
+      <span data-seek="160" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 160s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -4143,7 +4154,7 @@ TICKETS ON SALE NOW SpideyTracker.com</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 161s</span>
+      <span data-seek="161" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 161s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -4176,7 +4187,7 @@ TICKETS ON SALE NOW SpideyTracker.com</pre>
   <div class="mb-12">
     <div class="flex items-center gap-3 mb-4">
       <div class="h-px flex-1 bg-white/5"></div>
-      <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Frame 162s</span>
+      <span data-seek="162" class="text-xs font-semibold text-gray-500 tracking-widest uppercase cursor-pointer hover:text-indigo-400 transition">Frame 162s</span>
       <span class="text-xs text-gray-600">0.7s</span>
       <div class="h-px flex-1 bg-white/5"></div>
     </div>
@@ -4206,4 +4217,16 @@ TICKETS ON SALE NOW SpideyTracker.com</pre>
       </div>
     </div>
   </div></div>
-</div></body></html>
+  </div>
+</div>
+</div>
+<script>
+const player = document.getElementById('yt-player');
+document.querySelectorAll('[data-seek]').forEach(el => {{
+  el.addEventListener('click', () => {{
+    const t = el.dataset.seek;
+    player.src = player.src.replace(/[?&]start=\d+/,'') + '&start=' + t;
+  }});
+}});
+</script>
+</body></html>
