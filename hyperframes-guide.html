@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>HyperFrames Guide — Video from HTML</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{darker:'#0a0a0f',hyper:{red:'#FF003C',cyan:'#00D4FF',purple:'#8B00FF',dark:'#0A0A0A',green:'#00FF88'}}}}}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0f;color:#e5e7eb;font-family:system-ui,sans-serif;line-height:1.7}
+.glass{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px)}
+.card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:24px;transition:border-color .2s}
+.card:hover{border-color:rgba(0,212,255,0.2)}
+code{background:rgba(255,255,255,0.05);padding:2px 6px;border-radius:4px;font-size:.9em}
+pre{background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:16px;overflow-x:auto}
+pre code{background:none;padding:0}
+.tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.75rem;font-weight:600}
+</style>
+</head><body class="min-h-screen">
+
+<div class="max-w-5xl mx-auto px-4 py-12">
+
+<div class="text-center mb-16">
+<h1 class="text-5xl font-bold bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 bg-clip-text text-transparent mb-4">HyperFrames</h1>
+<p class="text-gray-500 text-lg">Render HTML + Tailwind + GSAP into deterministic MP4 — no timeline needed.</p>
+<div class="flex gap-3 justify-center mt-4">
+<span class="tag bg-purple-500/10 text-purple-300">npm i -g hyperframes</span>
+<span class="tag bg-cyan-500/10 text-cyan-300">v2.4.0</span>
+</div>
+</div>
+
+<div class="grid gap-8">
+
+<section>
+<h2 class="text-2xl font-bold text-white mb-4">What It Is</h2>
+<div class="card">
+<p class="text-gray-400">HyperFrames renders a plain HTML document into a byte-identical MP4 file. The browser engine drives a virtual clock — no wall-time jitter, no GPU drift. Every run produces the same sha256 hash.</p>
+<p class="text-gray-400 mt-3">Write markup. Add <code>data-width</code>, <code>data-height</code>, <code>data-duration</code>. Render. That's the whole loop.</p>
+</div>
+</section>
+
+<section>
+<h2 class="text-2xl font-bold text-white mb-4">Minimal Composition</h2>
+<div class="card">
+<p class="text-gray-400 mb-3">Three attributes turn HTML into video:</p>
+<pre><code>&lt;div data-width="1080" data-height="1920" data-duration="15"&gt;
+  &lt;h1 data-start="0.5" data-duration="3"&gt;Hello World&lt;/h1&gt;
+  &lt;img src="bg.jpg" data-start="0" data-duration="15"&gt;
+&lt;/div&gt;</code></pre>
+<p class="text-gray-400 mt-3">Render: <code class="text-green-400">hyperframes render comp.html --out reel.mp4</code></p>
+</div>
+</section>
+
+<section>
+<h2 class="text-2xl font-bold text-white mb-4">Tailwind + GSAP in HyperFrames</h2>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="card">
+<h3 class="text-lg font-semibold text-white mb-2">Tailwind Styling</h3>
+<p class="text-gray-400 text-sm">Use CDN Tailwind inside your composition. All utility classes work.</p>
+<pre class="mt-3 text-sm"><code>&lt;link href="https://cdn.tailwindcss.com" rel="stylesheet"&gt;
+&lt;div data-width="1080" data-height="1920"
+     data-duration="10"
+     class="bg-darker flex items-center justify-center"&gt;
+  &lt;h1 class="text-7xl font-bold
+             bg-gradient-to-r from-red-500
+             to-blue-500 bg-clip-text
+             text-transparent"
+      data-start="0" data-duration="10"&gt;
+    Reel Title
+  &lt;/h1&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<div class="card">
+<h3 class="text-lg font-semibold text-white mb-2">GSAP Animations</h3>
+<p class="text-gray-400 text-sm">GSAP auto-pins to HyperFrames seek clock. No real-time drift.</p>
+<pre class="mt-3 text-sm"><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+gsap.to(".title", {
+  scale: 1.2,
+  duration: 2,
+  ease: "power2.out"
+})
+&lt;/script&gt;</code></pre>
+</div>
+</div>
+</section>
+
+<section>
+<h2 class="text-2xl font-bold text-white mb-4">Reel Template — 15s Vertical</h2>
+<div class="card">
+<p class="text-gray-400 mb-3">1080x1920, 15-second reel with fade transitions and GSAP text animation:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div data-width="1080" data-height="1920" data-duration="15"
+     class="bg-darker relative overflow-hidden"&gt;
+
+  &lt;div class="absolute inset-0 flex items-center justify-center"
+       data-start="0" data-duration="5" data-fade="out:0.5"&gt;
+    &lt;h1 class="text-6xl font-bold text-white"&gt;Hook Line&lt;/h1&gt;
+  &lt;/div&gt;
+
+  &lt;div class="absolute inset-0 flex items-center justify-center"
+       data-start="4.5" data-duration="5.5" data-fade="in:0.5,out:0.5"&gt;
+    &lt;h2 class="text-4xl font-semibold text-cyan-300 px-8 text-center"&gt;
+      Problem to Solution
+    &lt;/h2&gt;
+  &lt;/div&gt;
+
+  &lt;div class="absolute inset-0 flex items-center justify-center"
+       data-start="9.5" data-duration="5.5" data-fade="in:0.5"&gt;
+    &lt;div class="text-center"&gt;
+      &lt;h3 class="text-5xl font-bold text-green-400 mb-4"&gt;CTA&lt;/h3&gt;
+      &lt;p class="text-2xl text-gray-400"&gt;Link in bio&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;script&gt;
+gsap.from("h1", {y: 60, opacity: 0, duration: 0.8, ease: "power3.out"})
+gsap.from("h2", {scale: 0.8, opacity: 0, duration: 0.6, ease: "back.out(2)"})
+gsap.from("h3", {rotation: -10, opacity: 0, duration: 0.5})
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</section>
+
+<section>
+<h2 class="text-2xl font-bold text-white mb-4">Key Data Attributes</h2>
+<div class="grid md:grid-cols-3 gap-4">
+<div class="card"><h3 class="text-cyan-300 font-semibold mb-2">data-width / data-height</h3><p class="text-gray-400 text-sm">Canvas dimensions in pixels. Root element only.</p></div>
+<div class="card"><h3 class="text-cyan-300 font-semibold mb-2">data-duration</h3><p class="text-gray-400 text-sm">Total length (root) or track length (children) in seconds.</p></div>
+<div class="card"><h3 class="text-cyan-300 font-semibold mb-2">data-start</h3><p class="text-gray-400 text-sm">When this track enters the timeline (seconds).</p></div>
+<div class="card"><h3 class="text-cyan-300 font-semibold mb-2">data-fade</h3><p class="text-gray-400 text-sm">Cross-fade shorthand: in:0.4,out:0.4</p></div>
+<div class="card"><h3 class="text-cyan-300 font-semibold mb-2">data-trim-start</h3><p class="text-gray-400 text-sm">Offset into a source video asset.</p></div>
+<div class="card"><h3 class="text-cyan-300 font-semibold mb-2">data-easing</h3><p class="text-gray-400 text-sm">Custom cubic-bezier for fades.</p></div>
+</div>
+</section>
+
+<section>
+<h2 class="text-2xl font-bold text-white mb-4">Rendering Cheatsheet</h2>
+<div class="card">
+<pre><code># Basic render
+hyperframes render comp.html --out reel.mp4
+
+# Transparent WebM (for Premiere overlay)
+hyperframes render comp.html --out overlay.webm --alpha
+
+# Lossless master
+hyperframes render comp.html --out master.mp4 --codec prores
+
+# Parallel render (use all cores)
+hyperframes render comp.html --out reel.mp4 --workers 8
+
+# Preview in browser
+hyperframes preview comp.html</code></pre>
+</div>
+</section>
+
+<section>
+<h2 class="text-2xl font-bold text-white mb-4">Premiere + HyperFrames Pipeline</h2>
+<div class="card">
+<div class="flex items-center gap-3 text-sm mb-4">
+<span class="tag bg-red-500/10 text-red-300">HF</span>
+<span class="text-gray-500">&rarr;</span>
+<span class="text-gray-400">Transparent WebM</span>
+<span class="text-gray-500">&rarr;</span>
+<span class="tag bg-blue-500/10 text-blue-300">Premiere</span>
+<span class="text-gray-500">&rarr;</span>
+<span class="text-gray-400">Composite + Export MP4</span>
+</div>
+<pre><code class="text-sm"># Step 1: Generate overlay in HyperFrames
+hyperframes render overlay.html --out overlay.webm --alpha
+
+# Step 2: Composite in ffmpeg (or Premiere)
+ffmpeg -i raw.mp4 -i overlay.webm \
+  -filter_complex "[0][1]overlay=enable='between(t,5,7)'" \
+  out.mp4</code></pre>
+</div>
+</section>
+
+<section>
+<h2 class="text-2xl font-bold text-white mb-4">Install &amp; Verify</h2>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="card">
+<h3 class="text-lg font-semibold text-white mb-2">Install</h3>
+<pre class="text-sm"><code>npm install -g hyperframes
+# requires Node 18+ &amp; FFmpeg 6+</code></pre>
+</div>
+<div class="card">
+<h3 class="text-lg font-semibold text-white mb-2">Verify</h3>
+<pre class="text-sm"><code>hyperframes doctor
+# checks Chromium, FFmpeg,
+# libvpx, disk space</code></pre>
+</div>
+</div>
+</section>
+
+<div class="text-center pt-8 pb-4">
+<p class="text-gray-600 text-sm">Built for <a href="https://hyperframes.video" class="text-cyan-300 hover:underline">HyperFrames</a> — open source video from HTML.</p>
+</div>
+
+</div>
+</div>
+</body></html>
