@@ -107,6 +107,7 @@ Spider-Man: Brand New Day</h1>
   </div>
 </div>
 </div>
+</body></html>
 <script src="https://www.youtube.com/iframe_api"></script>
 <script>
 let ytPlayer;
@@ -124,8 +125,7 @@ document.querySelectorAll('[data-seek]').forEach(el => {
     else console.warn('YT player not ready');
   });
 });
-</script>
-</body></html>'''
+</script>'''
 
 with open(OUTPUT, "w") as f:
     f.write(html)
