@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Higgsfield Mini Proto — Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0f;color:#e5e7eb;font-family:Inter,system-ui,sans-serif;line-height:1.7}
+.wrap{max-width:800px;margin:0 auto;padding:48px 24px}
+h1{font-size:2rem;font-weight:700;background:linear-gradient(135deg,#a855f7,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.sub{color:#6b7280;font-size:.9rem;margin-bottom:40px}
+h2{font-size:1.3rem;font-weight:600;color:#f9fafb;margin:36px 0 12px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.06)}
+h3{font-size:1.05rem;font-weight:600;color:#d1d5db;margin:24px 0 8px}
+p{color:#9ca3af;margin-bottom:12px}
+ul{padding-left:20px;margin-bottom:16px}
+li{color:#9ca3af;margin-bottom:4px}
+code{background:rgba(255,255,255,.06);color:#a78bfa;padding:2px 6px;border-radius:4px;font-size:.85em}
+pre{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:16px;overflow-x:auto;margin:12px 0;font-size:.85em;color:#d1d5db}
+.badge{display:inline-block;background:rgba(34,197,94,.12);color:#22c55e;padding:2px 10px;border-radius:12px;font-size:.75rem;font-weight:600}
+hr{border:none;border-top:1px solid rgba(255,255,255,.06);margin:32px 0}
+.week{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:20px;margin-bottom:16px}
+.week h3{margin-top:0}
+.chk{color:#22c55e;margin-right:6px}
+.dir{font-family:monospace;font-size:.85em;color:#6b7280;line-height:1.5}
+.dir span{color:#a78bfa}
+</style>
+</head><body>
+<div class="wrap">
+<h1>Higgsfield Mini Proto &mdash; Plan</h1>
+<p class="sub">Full analysis + 4-week build roadmap</p>
+
+<h2>Video Analysis Summary</h2>
+<p>Source: &ldquo;I Recreated Higgsfield From Scratch in 2 Hours_2.mp4&rdquo; (2h 19m)</p>
+<ul>
+<li><strong>187 scenes</strong> detected</li>
+<li><strong>1961 dialogue lines</strong> transcribed via Whisper</li>
+<li><strong>187 Moondream descriptions</strong> analyzed</li>
+</ul>
+<p>The video shows a full walkthrough of recreating Higgsfield AI&rsquo;s core features:</p>
+<ul>
+<li>AI video generation pipeline</li>
+<li>Face swapping technology</li>
+<li>Text-to-video generation</li>
+<li>Cinematic post-processing</li>
+<li>The creator&rsquo;s build process and architecture decisions</li>
+</ul>
+
+<hr>
+
+<h2>Mini Proto: <code>higgsfield-analyzer</code> <span class="badge">Done</span></h2>
+<p>A CLI tool that takes any video and produces a scene-by-scene analysis:</p>
+<pre>python3 higgsfield-analyzer.py video.mp4</pre>
+<p>Outputs:</p>
+<ul>
+<li>Scene detection (ffmpeg)</li>
+<li>First-frame extraction per scene</li>
+<li>Moondream vision descriptions</li>
+<li>Whisper audio transcription</li>
+<li>Storyboard HTML report</li>
+</ul>
+<p><strong>Status:</strong> <span style="color:#22c55e">Working</span> &mdash; tested on Spiderman (44 scenes) and Higgsfield (187 scenes)</p>
+
+<hr>
+
+<h2>1-Month Build Plan: <code>higgsfield-mini</code></h2>
+
+<div class="week">
+<h3>Week 1: Text-to-Video Core</h3>
+<ul>
+<li><span class="chk">&#9744;</span> Set up diffusers + Stable Video Diffusion</li>
+<li><span class="chk">&#9744;</span> LoRA fine-tuning on 10 custom videos</li>
+<li><span class="chk">&#9744;</span> CLI: <code>hf-gen &ldquo;prompt&rdquo; &rarr; video.mp4</code></li>
+<li><span class="chk">&#9744;</span> RTX 5060 optimizations (fp16, attention slicing)</li>
+</ul>
+</div>
+
+<div class="week">
+<h3>Week 2: Face Swap Module</h3>
+<ul>
+<li><span class="chk">&#9744;</span> InsightFace detection + inswapper_128</li>
+<li><span class="chk">&#9744;</span> Face swap on generated video frames</li>
+<li><span class="chk">&#9744;</span> Temporal smoothing between frames</li>
+<li><span class="chk">&#9744;</span> CLI: <code>hf-swap source.mp4 target_face.jpg &rarr; output.mp4</code></li>
+</ul>
+</div>
+
+<div class="week">
+<h3>Week 3: Character Consistency</h3>
+<ul>
+<li><span class="chk">&#9744;</span> IP-Adapter for face/character reference</li>
+<li><span class="chk">&#9744;</span> Consistent character across scenes</li>
+<li><span class="chk">&#9744;</span> Background replacement (Inpaint)</li>
+<li><span class="chk">&#9744;</span> CLI: <code>hf-consistent character.jpg prompt.mp4 &rarr; output.mp4</code></li>
+</ul>
+</div>
+
+<div class="week">
+<h3>Week 4: Cinema Pipeline</h3>
+<ul>
+<li><span class="chk">&#9744;</span> Color grading (LUTs)</li>
+<li><span class="chk">&#9744;</span> Motion interpolation (RIFE / FILM)</li>
+<li><span class="chk">&#9744;</span> Audio sync + background music</li>
+<li><span class="chk">&#9744;</span> Final CLI: <code>hf-cinema script.json &rarr; cinema.mp4</code></li>
+</ul>
+</div>
+
+<hr>
+
+<h2>Architecture</h2>
+<pre class="dir">
+higgsfield-mini/
+<span>&#9492;</span><span>&#9472;</span><span>&#9472;</span> analyze/          Scene analysis (reuse higgsfield-analyzer)
+<span>&#9474;</span>   <span>&#9492;</span><span>&#9472;</span><span>&#9472;</span> scene_detect.py
+<span>&#9474;</span>   <span>&#9492;</span><span>&#9472;</span><span>&#9472;</span> frame_extract.py
+<span>&#9474;</span>   <span>&#9492;</span><span>&#9472;</span><span>&#9472;</span> moondream_analyze.py
+<span>&#9492;</span><span>&#9472;</span><span>&#9472;</span> generate/         Text-to-video generation
+<span>&#9474;</span>   <span>&#9492;</span><span>&#9472;</span><span>&#9472;</span> svd_pipeline.py
+<span>&#9474;</span>   <span>&#9492;</span><span>&#9472;</span><span>&#9472;</span> lora_train.py
+<span>&#9474;</span>   <span>&#9492;</span><span>&#9472;</span><span>&#9472;</span> face_swap.py
+<span>&#9492;</span><span>&#9472;</span><span>&#9472;</span> cinema/           Post-processing
+<span>&#9474;</span>   <span>&#9492;</span><span>&#9472;</span><span>&#9472;</span> color_grade.py
+<span>&#9474;</span>   <span>&#9492;</span><span>&#9472;</span><span>&#9472;</span> interpolate.py
+<span>&#9474;</span>   <span>&#9492;</span><span>&#9472;</span><span>&#9472;</span> audio_sync.py
+<span>&#9492;</span><span>&#9472;</span><span>&#9472;</span> cli/              CLI entry points
+<span>&#9474;</span>   <span>&#9492;</span><span>&#9472;</span><span>&#9472;</span> hf-gen
+<span>&#9474;</span>   <span>&#9492;</span><span>&#9472;</span><span>&#9472;</span> hf-swap
+<span>&#9474;</span>   <span>&#9492;</span><span>&#9472;</span><span>&#9472;</span> hf-cinema
+<span>&#9492;</span><span>&#9472;</span><span>&#9472;</span> requirements.txt
+</pre>
+
+<h2>Hardware</h2>
+<ul>
+<li>RTX 5060 8GB (Helios)</li>
+<li>Models: Stable Video Diffusion, InsightFace, IP-Adapter</li>
+<li>All local, no cloud API costs</li>
+</ul>
+
+<p style="text-align:center;color:#6b7280;font-size:.85rem;margin-top:48px">Generated by Fuche AI &mdash; 2026-07-07</p>
+</div>
+</body></html>
