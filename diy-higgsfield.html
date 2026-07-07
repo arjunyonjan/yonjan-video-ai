@@ -6,199 +6,919 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0a0f;color:#e5e7eb;font-family:system-ui,sans-serif;line-height:1.7}
 .glass{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px)}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:999;cursor:pointer}
+.modal img{max-width:95vw;max-height:95vh;margin:auto;position:absolute;top:0;bottom:0;left:0;right:0}
+.modal.show{display:flex}
 </style>
 </head><body class="min-h-screen">
+
+<div id="imageModal" class="modal" onclick="this.classList.remove('show')">
+  <img id="modalImg" src="">
+</div>
+
+<script>
+function openModal(src) {
+  document.getElementById('modalImg').src = src;
+  document.getElementById('imageModal').classList.add('show');
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') document.getElementById('imageModal').classList.remove('show');
+});
+</script>
+
 <div class="max-w-7xl mx-auto px-4 py-8">
+
+<!-- Hero -->
 <div class="text-center mb-16">
 <h1 class="text-5xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent mb-4">DIY Higgsfield</h1>
-<p class="text-gray-400 text-lg max-w-2xl mx-auto">Build your own AI video generation platform. Recreated from a 2h 19m build video — 28 frames sampled every 5 minutes.</p>
+<p class="text-gray-400 text-lg max-w-2xl mx-auto">Build your own AI video generation platform from scratch. Full reverse-engineering of a 2h 19m build video with 28 sample points, Moondream vision, Tesseract OCR, and Whisper transcription.</p>
+<div class="flex gap-4 justify-center mt-6 text-sm flex-wrap">
+<span class="px-4 py-2 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">28 sample points</span>
+<span class="px-4 py-2 rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20">1961 dialogue lines</span>
+<span class="px-4 py-2 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">Moondream Vision</span>
+<span class="px-4 py-2 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20">Tesseract OCR</span>
+<span class="px-4 py-2 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Whisper STT</span>
+</div>
 </div>
 
+<!-- Quick Grid -->
 <div class="glass rounded-2xl p-8 mb-12">
-<h2 class="text-2xl font-semibold mb-4">Architecture</h2>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-<div class="p-4 rounded-xl bg-purple-500/5 border border-purple-500/10"><div class="text-2xl mb-1">🎬</div><div class="text-sm font-medium">Stable Video Diffusion</div></div>
-<div class="p-4 rounded-xl bg-pink-500/5 border border-pink-500/10"><div class="text-2xl mb-1">🔄</div><div class="text-sm font-medium">Face Swap</div></div>
-<div class="p-4 rounded-xl bg-indigo-500/5 border border-indigo-500/10"><div class="text-2xl mb-1">👤</div><div class="text-sm font-medium">Character Consistency</div></div>
-<div class="p-4 rounded-xl bg-amber-500/5 border border-amber-500/10"><div class="text-2xl mb-1">🎥</div><div class="text-sm font-medium">Cinema Pipeline</div></div>
-</div>
-</div>
+<h2 class="text-2xl font-semibold mb-4">Quick Overview (every 5 min)</h2>
+<p class="text-gray-500 text-sm mb-6">Click any image for full-screen zoom. Each card shows Moondream description + first dialogue line.</p>
+<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-2">
 
-<div class="glass rounded-2xl p-8">
-<h2 class="text-2xl font-semibold mb-4">Minute-by-Minute Breakdown</h2>
-<p class="text-gray-500 text-sm mb-6">28 samples across 139 minutes — Moondream vision + Whisper transcription</p>
-<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2">
-
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_000.jpg')">
         <img src="frames_random/frame_000.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 000</div>
         <div class="text-xs text-gray-500 leading-tight">Man in sunglasses sitting in car driver seat</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Let me set the context for the video."</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"Let me set the context for the video."</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_005.jpg')">
         <img src="frames_random/frame_005.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 005</div>
         <div class="text-xs text-gray-500 leading-tight">Computer screen showing video creation website landing page</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"If needed add a bunch of reference videos,"</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"If needed add a bunch of reference videos,"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_010.jpg')">
         <img src="frames_random/frame_010.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 010</div>
         <div class="text-xs text-gray-500 leading-tight">Black screen with white text: Part 1 - Architecture</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"and also happy that, you know, I have a coding companion never in this case."</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"and also happy that, you know, I have a coding companion nev"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_015.jpg')">
         <img src="frames_random/frame_015.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 015</div>
         <div class="text-xs text-gray-500 leading-tight">Computer screen with webpage showing text and code, presenter face visible</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Let me,"</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"Let me,"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_020.jpg')">
         <img src="frames_random/frame_020.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 020</div>
         <div class="text-xs text-gray-500 leading-tight">Computer screen with presenter face, online video tutorial</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"this thing right here,"</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"this thing right here,"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_025.jpg')">
         <img src="frames_random/frame_025.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 025</div>
         <div class="text-xs text-gray-500 leading-tight">Computer screen showing code in programming language</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"I would assume this is able to do everything in one go,"</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"I would assume this is able to do everything in one go,"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_030.jpg')">
         <img src="frames_random/frame_030.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 030</div>
         <div class="text-xs text-gray-500 leading-tight">Web browser open, man wearing glasses</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"mono-repolio,"</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"mono-repolio,"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_035.jpg')">
         <img src="frames_random/frame_035.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 035</div>
         <div class="text-xs text-gray-500 leading-tight">Webpage with text and code, focus on code block</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"A Google client ID can secret and open router API key."</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"A Google client ID can secret and open router API key."</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_040.jpg')">
         <img src="frames_random/frame_040.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 040</div>
         <div class="text-xs text-gray-500 leading-tight">Webpage with text and image in browser</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"An image tab and a face swap tab."</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"An image tab and a face swap tab."</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_045.jpg')">
         <img src="frames_random/frame_045.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 045</div>
         <div class="text-xs text-gray-500 leading-tight">Webpage with man face wearing glasses</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"And if they want, replace their face in their video and become the main character of that specific v"</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"And if they want, replace their face in their video and beco"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_050.jpg')">
         <img src="frames_random/frame_050.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 050</div>
         <div class="text-xs text-gray-500 leading-tight">Open webpage with black background, code focus</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"And if they want, regenerate the video with their own avatar."</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"And if they want, regenerate the video with their own avatar"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_055.jpg')">
         <img src="frames_random/frame_055.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 055</div>
         <div class="text-xs text-gray-500 leading-tight">Webpage with text and images, code displayed</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Yes, it's absurd."</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"Yes, it's absurd."</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_060.jpg')">
         <img src="frames_random/frame_060.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 060</div>
         <div class="text-xs text-gray-500 leading-tight">Open web browser, man wearing glasses</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Music video."</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"Music video."</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_065.jpg')">
         <img src="frames_random/frame_065.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 065</div>
         <div class="text-xs text-gray-500 leading-tight">Open web browser, webpage displayed</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"7 when he p's good, 16 to 9 is good."</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"7 when he p's good, 16 to 9 is good."</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_070.jpg')">
         <img src="frames_random/frame_070.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 070</div>
         <div class="text-xs text-gray-500 leading-tight">Web browser open, person face visible</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"Now let me add the very first track for four seconds."</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"Now let me add the very first track for four seconds."</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_075.jpg')">
         <img src="frames_random/frame_075.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 075</div>
         <div class="text-xs text-gray-500 leading-tight">Code in text editor, programming language</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"We should also probably."</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"We should also probably."</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_080.jpg')">
         <img src="frames_random/frame_080.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 080</div>
         <div class="text-xs text-gray-500 leading-tight">Web browser with green webpage displayed</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"At this point, I should add another video."</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"At this point, I should add another video."</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_085.jpg')">
         <img src="frames_random/frame_085.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 085</div>
         <div class="text-xs text-gray-500 leading-tight">Open webpage with video playing, New York Times</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"back in restart refresh this one and let's see I can can I track them or I can't track them around c"</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"back in restart refresh this one and let's see I can can I t"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_090.jpg')">
         <img src="frames_random/frame_090.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 090</div>
         <div class="text-xs text-gray-500 leading-tight">Webpage with man face, black background</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"baked during export though ones that already are should just be picked from the bb slash minier"</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"baked during export though ones that already are should just"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_095.jpg')">
         <img src="frames_random/frame_095.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 095</div>
         <div class="text-xs text-gray-500 leading-tight">Open web browser, person face in corner</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"beautiful I think that's exactly what I needed a rendering export work which probably means"</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"beautiful I think that's exactly what I needed a rendering e"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_100.jpg')">
         <img src="frames_random/frame_100.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 100</div>
         <div class="text-xs text-gray-500 leading-tight">Web browser open, person profile visible</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"that's AI generated beautiful and this one generated are fixed hopefully the template creation"</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"that's AI generated beautiful and this one generated are fix"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_105.jpg')">
         <img src="frames_random/frame_105.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 105</div>
         <div class="text-xs text-gray-500 leading-tight">Error message on left side of screen</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"for end users and not for admins um who generate templates um put a same uh figure out the best"</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"for end users and not for admins um who generate templates u"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_110.jpg')">
         <img src="frames_random/frame_110.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 110</div>
         <div class="text-xs text-gray-500 leading-tight">Online video editing software, Edit tab</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"cool let's do a rebuild probably only need the front end but let me do both the front end and the"</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"cool let's do a rebuild probably only need the front end but"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_115.jpg')">
         <img src="frames_random/frame_115.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 115</div>
         <div class="text-xs text-gray-500 leading-tight">Web browser open, man wearing glasses</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"off a bunch of parallel tasks while I spend my time building uh the very first you know template for"</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"off a bunch of parallel tasks while I spend my time building"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_120.jpg')">
         <img src="frames_random/frame_120.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 120</div>
         <div class="text-xs text-gray-500 leading-tight">Webpage with man face wearing glasses</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"you can do it here you can do it inside the terminal I'm just a terminal fan so I'm going to"</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"you can do it here you can do it inside the terminal I'm jus"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_125.jpg')">
         <img src="frames_random/frame_125.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 125</div>
         <div class="text-xs text-gray-500 leading-tight">Open web browser with many tabs</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"take this it will look bad I will become the second person also so you know this person this"</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"take this it will look bad I will become the second person a"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_130.jpg')">
         <img src="frames_random/frame_130.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 130</div>
         <div class="text-xs text-gray-500 leading-tight">Two images shown: astronaut suit person and another</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"video on hex field this is the prompt for it I generated directly over here this is a video"</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"video on hex field this is the prompt for it I generated dir"</div>
     </div>
-    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-purple-500/20 border rounded-xl p-2 transition hover:scale-105">
+    <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/20 rounded-xl p-2 transition hover:scale-105 cursor-pointer" onclick="openModal('frames_random/frame_135.jpg')">
         <img src="frames_random/frame_135.jpg" class="w-full rounded-lg mb-1" loading="lazy">
         <div class="text-xs text-gray-400">Min 135</div>
         <div class="text-xs text-gray-500 leading-tight">PayPal.com website displayed</div>
-        <div class="text-xs text-yellow-500/70 italic mt-1">"this is what it looks like if you use Razer Pay and test mode it just tells you do you want this"</div>
+        <div class="text-xs text-yellow-500/70 italic mt-0.5 truncate">"this is what it looks like if you use Razer Pay and test mod"</div>
     </div>
 </div>
 </div>
-<div class="text-center text-gray-600 text-xs mt-12 pb-8">Built on Helios (RTX 5060) — Fuche AI — 2026-07-07</div>
+
+<!-- Architecture -->
+<div class="glass rounded-2xl p-8 mb-12">
+<h2 class="text-2xl font-semibold mb-6">Architecture Overview</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+<div class="p-4 rounded-xl bg-purple-500/5 border border-purple-500/10">
+<div class="text-2xl mb-1">🎬</div>
+<div class="text-sm font-medium">Stable Video Diffusion</div>
+<div class="text-xs text-gray-500 mt-1">Text/Image to video. Core generation model.</div>
+</div>
+<div class="p-4 rounded-xl bg-pink-500/5 border border-pink-500/10">
+<div class="text-2xl mb-1">🔄</div>
+<div class="text-sm font-medium">Face Swap</div>
+<div class="text-xs text-gray-500 mt-1">InsightFace + Inswapper. Frame-by-frame.</div>
+</div>
+<div class="p-4 rounded-xl bg-indigo-500/5 border border-indigo-500/10">
+<div class="text-2xl mb-1">👤</div>
+<div class="text-sm font-medium">Character Consistency</div>
+<div class="text-xs text-gray-500 mt-1">IP-Adapter + LoRA. Same face across scenes.</div>
+</div>
+<div class="p-4 rounded-xl bg-amber-500/5 border border-amber-500/10">
+<div class="text-2xl mb-1">🎥</div>
+<div class="text-sm font-medium">Cinema Pipeline</div>
+<div class="text-xs text-gray-500 mt-1">LUT grading + RIFE interpolation + audio.</div>
+</div>
+</div>
+</div>
+
+<!-- Build Steps -->
+<div class="glass rounded-2xl p-8 mb-12">
+<h2 class="text-2xl font-semibold mb-6">Build Steps (from video analysis)</h2>
+<div class="space-y-4">
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-300 flex items-center justify-center shrink-0 font-bold">1</div>
+<div>
+<h3 class="font-medium text-white">Environment Setup</h3>
+<p class="text-sm text-gray-400">Python 3.12, CUDA 12.4, PyTorch 2.6 with fp16 support. Install diffusers, transformers, accelerate, xformers for memory-efficient attention.</p>
+<pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-2 mt-1 overflow-x-auto">pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+pip install diffusers transformers accelerate xformers sentencepiece protobuf</pre>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-pink-500/20 text-pink-300 flex items-center justify-center shrink-0 font-bold">2</div>
+<div>
+<h3 class="font-medium text-white">LoRA Fine-Tuning</h3>
+<p class="text-sm text-gray-400">Train a Low-Rank Adapter on 10 custom videos (5-15 seconds each). Rank=64 captures style without overfitting. 1 hour on RTX 5060.</p>
+<pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-2 mt-1 overflow-x-auto">accelerate launch train_lora.py   --pretrained_model_name="stabilityai/stable-video-diffusion-img2vid"   --train_data_dir="./my_videos" --rank=64   --learning_rate=1e-4 --num_train_epochs=100   --mixed_precision=fp16</pre>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-indigo-500/20 text-indigo-300 flex items-center justify-center shrink-0 font-bold">3</div>
+<div>
+<h3 class="font-medium text-white">Face Swap Pipeline</h3>
+<p class="text-sm text-gray-400">InsightFace detection + inswapper_128 with temporal smoothing (3-frame rolling average). Critical: without smoothing, faces jitter between frames.</p>
+<pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-2 mt-1 overflow-x-auto">pip install insightface onnxruntime-gpu opencv-python-headless
+# Temporal smoothing: average face landmarks across 3 frames</pre>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-300 flex items-center justify-center shrink-0 font-bold">4</div>
+<div>
+<h3 class="font-medium text-white">Character Consistency</h3>
+<p class="text-sm text-gray-400">IP-Adapter FaceID Plus v2 — works from a single reference photo (no training needed). Combine with background replacement via Stable Diffusion inpainting.</p>
+<pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-2 mt-1 overflow-x-auto">from ip_adapter import IPAdapter
+ip_adapter = IPAdapter(pipe, "ip-adapter-faceid-plusv2_sd15.bin")
+pipe.unet = ip_adapter.apply("character.jpg")</pre>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0 font-bold">5</div>
+<div>
+<h3 class="font-medium text-white">Cinema Pipeline</h3>
+<p class="text-sm text-gray-400">LUT color grading (5 presets: Blockbuster, Noir, Teal-Orange), RIFE/FILM motion interpolation (24→60fps), audio ducking for background music.</p>
+<pre class="text-xs text-gray-500 bg-black/30 rounded-lg p-2 mt-1 overflow-x-auto">ffmpeg -i input.mp4 -vf "lut3d=blockbuster.cube" output.mp4
+ffmpeg -i input.mp4 -vf "minterpolate=fps=60:mi_mode=mci" output.mp4</pre>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Full Analysis -->
+<div class="glass rounded-2xl p-8 mb-12">
+<h2 class="text-2xl font-semibold mb-2">Full Minute-by-Minute Analysis</h2>
+<p class="text-gray-500 text-sm mb-6">Each minute sampled shows: frame image (click to zoom), Moondream vision description, and Whisper-transcribed dialogue from that segment. Scroll down for the complete timeline.</p>
+
+    <div class="mb-12" id="min-000">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 000</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_000.jpg')">
+          <img src="frames_random/frame_000.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Man in sunglasses sitting in car driver seat</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"Let me set the context for the video."</span><span class="block text-yellow-300/80 text-xs italic">"Check out this video."</span><span class="block text-yellow-300/80 text-xs italic">"And maybe this one."</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-005">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 005</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_005.jpg')">
+          <img src="frames_random/frame_005.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Computer screen showing video creation website landing page</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"If needed add a bunch of reference videos,"</span><span class="block text-yellow-300/80 text-xs italic">"you can also add start frames and end frames that you know,"</span><span class="block text-yellow-300/80 text-xs italic">"sort of let you make sure that the video starts from a specific image frame and ends at a specific image frame."</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-010">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 010</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_010.jpg')">
+          <img src="frames_random/frame_010.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Black screen with white text: Part 1 - Architecture</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"and also happy that, you know, I have a coding companion never in this case."</span><span class="block text-yellow-300/80 text-xs italic">"That is going to help me through it, because God, I hate front end,"</span><span class="block text-yellow-300/80 text-xs italic">"and if I had to do all of this front end myself without using AI,"</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-015">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 015</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_015.jpg')">
+          <img src="frames_random/frame_015.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Computer screen with webpage showing text and code, presenter face visible</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"Let me,"</span><span class="block text-yellow-300/80 text-xs italic">"now there's a,"</span><span class="block text-yellow-300/80 text-xs italic">"very big question mark here,"</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-020">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 020</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_020.jpg')">
+          <img src="frames_random/frame_020.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Computer screen with presenter face, online video tutorial</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"this thing right here,"</span><span class="block text-yellow-300/80 text-xs italic">"and this probably an AI friendly version of this,"</span><span class="block text-yellow-300/80 text-xs italic">"but I think that should be good enough,"</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-025">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 025</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_025.jpg')">
+          <img src="frames_random/frame_025.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Computer screen showing code in programming language</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"I would assume this is able to do everything in one go,"</span><span class="block text-yellow-300/80 text-xs italic">"we'll choose the most,"</span><span class="block text-yellow-300/80 text-xs italic">"you know,"</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-030">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 030</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_030.jpg')">
+          <img src="frames_random/frame_030.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Web browser open, man wearing glasses</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"mono-repolio,"</span><span class="block text-yellow-300/80 text-xs italic">"project dependencies,"</span><span class="block text-yellow-300/80 text-xs italic">"added database,"</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-035">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 035</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_035.jpg')">
+          <img src="frames_random/frame_035.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Webpage with text and code, focus on code block</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"A Google client ID can secret and open router API key."</span><span class="block text-yellow-300/80 text-xs italic">"Now this should be good enough for me to start the project locally."</span><span class="block text-yellow-300/80 text-xs italic">"If I don't knock or compose up, hopefully all the services should start."</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-040">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 040</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_040.jpg')">
+          <img src="frames_random/frame_040.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Webpage with text and image in browser</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"An image tab and a face swap tab."</span><span class="block text-yellow-300/80 text-xs italic">"We'll try all three of them out before we proceed to the next part of the video."</span><span class="block text-yellow-300/80 text-xs italic">"Alrighty."</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-045">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 045</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_045.jpg')">
+          <img src="frames_random/frame_045.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Webpage with man face wearing glasses</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"And if they want, replace their face in their video and become the main character of that specific video."</span><span class="block text-yellow-300/80 text-xs italic">"That is what we're going to build next slightly ambitious novel."</span><span class="block text-yellow-300/80 text-xs italic">"New sort of feature, which I'm very interested to see how devent performs on all right."</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-050">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 050</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_050.jpg')">
+          <img src="frames_random/frame_050.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Open webpage with black background, code focus</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"And if they want, regenerate the video with their own avatar."</span><span class="block text-yellow-300/80 text-xs italic">"This also means we need a new tab called avatar, where a user can come and put one to two images of themselves and we create an avatar."</span><span class="block text-yellow-300/80 text-xs italic">"For them, this avatar they can select before they generate a template for template video output for themselves."</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-055">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 055</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_055.jpg')">
+          <img src="frames_random/frame_055.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Webpage with text and images, code displayed</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"Yes, it's absurd."</span><span class="block text-yellow-300/80 text-xs italic">"I have it already passed as an open-out reference image for every block not just phase swap."</span><span class="block text-yellow-300/80 text-xs italic">"It's both the things which I think was point to as well."</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-060">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 060</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_060.jpg')">
+          <img src="frames_random/frame_060.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Open web browser, man wearing glasses</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"Music video."</span><span class="block text-yellow-300/80 text-xs italic">"It has one avatar. It's 60 seconds."</span><span class="block text-yellow-300/80 text-xs italic">"And choose a base audio track. All right, this will be interesting part."</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-065">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 065</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_065.jpg')">
+          <img src="frames_random/frame_065.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Open web browser, webpage displayed</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"7 when he p's good, 16 to 9 is good."</span><span class="block text-yellow-300/80 text-xs italic">"I don't have a start frame or an end frame."</span><span class="block text-yellow-300/80 text-xs italic">"I do want a reference image."</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-070">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 070</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_070.jpg')">
+          <img src="frames_random/frame_070.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Web browser open, person face visible</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"Now let me add the very first track for four seconds."</span><span class="block text-yellow-300/80 text-xs italic">"I literally be this long, but I think this is a weird duration that you can't give."</span><span class="block text-yellow-300/80 text-xs italic">"So."</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-075">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 075</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_075.jpg')">
+          <img src="frames_random/frame_075.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Code in text editor, programming language</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"We should also probably."</span><span class="block text-yellow-300/80 text-xs italic">"Only allow."</span><span class="block text-yellow-300/80 text-xs italic">"Certain."</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-080">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 080</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_080.jpg')">
+          <img src="frames_random/frame_080.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Web browser with green webpage displayed</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"At this point, I should add another video."</span><span class="block text-yellow-300/80 text-xs italic">"So I'll add a new video, which is probably six seconds."</span><span class="block text-yellow-300/80 text-xs italic">"All right."</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-085">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 085</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_085.jpg')">
+          <img src="frames_random/frame_085.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Open webpage with video playing, New York Times</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"back in restart refresh this one and let's see I can can I track them or I can't track them around can I"</span><span class="block text-yellow-300/80 text-xs italic">"drop them smaller still doesn't work huh well who was a difficult task can I copy paste"</span><span class="block text-yellow-300/80 text-xs italic">"I can copy paste that is working let's try that"</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-090">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 090</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_090.jpg')">
+          <img src="frames_random/frame_090.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Webpage with man face, black background</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"baked during export though ones that already are should just be picked from the bb slash minier"</span><span class="block text-yellow-300/80 text-xs italic">"already save this and then let's in this sidebar ask it to implement this thing it's now I'm"</span><span class="block text-yellow-300/80 text-xs italic">"because it's interesting to see how you know it performs with two parallel agents trying to in this"</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-095">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 095</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_095.jpg')">
+          <img src="frames_random/frame_095.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Open web browser, person face in corner</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"beautiful I think that's exactly what I needed a rendering export work which probably means"</span><span class="block text-yellow-300/80 text-xs italic">"it's available in templates and it is it shows me a thumbnail the thumbnail should be"</span><span class="block text-yellow-300/80 text-xs italic">"age and it is that's one thing I'll change the thumbnail generated during export of"</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-100">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 100</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_100.jpg')">
+          <img src="frames_random/frame_100.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Web browser open, person profile visible</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"that's AI generated beautiful and this one generated are fixed hopefully the template creation"</span><span class="block text-yellow-300/80 text-xs italic">"functionality let's rebuild everything"</span><span class="block text-yellow-300/80 text-xs italic">"let's restart"</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-105">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 105</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_105.jpg')">
+          <img src="frames_random/frame_105.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Error message on left side of screen</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"for end users and not for admins um who generate templates um put a same uh figure out the best"</span><span class="block text-yellow-300/80 text-xs italic">"pricing model uh let's have three plans uh oh stop how do I stop it uh I'll stop it I'll copy it"</span><span class="block text-yellow-300/80 text-xs italic">"I will do it one more time uh select arena here let's have three plans uh rupees 1000 uh rupees"</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-110">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 110</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_110.jpg')">
+          <img src="frames_random/frame_110.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Online video editing software, Edit tab</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"cool let's do a rebuild probably only need the front end but let me do both the front end and the"</span><span class="block text-yellow-300/80 text-xs italic">"back end let's start everything go to locals going 5173 I think is where the front end is hosted"</span><span class="block text-yellow-300/80 text-xs italic">"all right can't say I love it yeah the UI needs another you know other iteration for sure"</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-115">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 115</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_115.jpg')">
+          <img src="frames_random/frame_115.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Web browser open, man wearing glasses</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"off a bunch of parallel tasks while I spend my time building uh the very first you know template for"</span><span class="block text-yellow-300/80 text-xs italic">"for this website I'll probably spend a few hours on it at least you know an hour or two"</span><span class="block text-yellow-300/80 text-xs italic">"I don't know what audio I use I don't know what video I'll use but I'll spend like a few"</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-120">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 120</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_120.jpg')">
+          <img src="frames_random/frame_120.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Webpage with man face wearing glasses</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"you can do it here you can do it inside the terminal I'm just a terminal fan so I'm going to"</span><span class="block text-yellow-300/80 text-xs italic">"a terminal fan tracing that I'm going to just you do it inside the terminal implement"</span><span class="block text-yellow-300/80 text-xs italic">"at the rate of 17 dash landing page beautiful cool while that is working let me spend some time"</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-125">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 125</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_125.jpg')">
+          <img src="frames_random/frame_125.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Open web browser with many tabs</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"take this it will look bad I will become the second person also so you know this person this"</span><span class="block text-yellow-300/80 text-xs italic">"will both become me I only want this guy to be me you can also select which model you want to do"</span><span class="block text-yellow-300/80 text-xs italic">"use for the face swap this runs locally works really well problem is this doesn't change the"</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-130">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 130</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_130.jpg')">
+          <img src="frames_random/frame_130.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">Two images shown: astronaut suit person and another</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"video on hex field this is the prompt for it I generated directly over here this is a video"</span><span class="block text-yellow-300/80 text-xs italic">"you know these are a bunch of images that I've created in the past person 1% do GPT image too"</span><span class="block text-yellow-300/80 text-xs italic">"exact etcetera and the again the UI part the credits system were little one trucks the only"</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-12" id="min-135">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="h-px flex-1 bg-white/5"></div>
+        <span class="text-xs font-semibold text-gray-500 tracking-widest uppercase">Minute 135</span>
+        <div class="h-px flex-1 bg-white/5"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-3 cursor-pointer" onclick="openModal('frames_random/frame_135.jpg')">
+          <img src="frames_random/frame_135.jpg" class="w-full rounded-xl">
+          <div class="text-xs text-gray-600 text-center mt-1">Click to zoom</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-xs text-indigo-400 font-medium uppercase tracking-wider mb-2">Moondream Vision</div>
+          <p class="text-gray-400 text-sm leading-relaxed">PayPal.com website displayed</p>
+          
+        <div class="mt-2 pt-2 border-t border-white/5">
+          <div class="text-xs text-yellow-400 font-medium uppercase tracking-wider mb-1">Whisper STT</div>
+          <div class="space-y-0.5"><span class="block text-yellow-300/80 text-xs italic">"this is what it looks like if you use Razer Pay and test mode it just tells you do you want this"</span><span class="block text-yellow-300/80 text-xs italic">"transaction to fail or succeed I want it to succeed um and so right now even in good website and"</span><span class="block text-yellow-300/80 text-xs italic">"give themselves credits by the time you guys see the video it'll be production keys so you'll actually"</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+</div>
+
 </div>
 </body></html>
