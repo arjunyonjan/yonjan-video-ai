@@ -94,7 +94,7 @@ Spider-Man: Brand New Day</h1>
   <div id="trailer-col" class="w-full lg:w-[480px] shrink-0">
     <div class="sticky top-4 z-10">
       <div class="flex gap-2 mb-2">
-        <button onclick="document.getElementById(\'trailer-video\').classList.toggle(\'hidden\');this.textContent=this.textContent==\'Show Trailer\'?\'Hide Trailer\':\'Show Trailer\'" class="text-xs text-gray-500 bg-white/5 px-3 py-1 rounded-full flex-1">Hide Trailer</button>
+        <button id="toggle-trailer-btn" onclick="var v=document.getElementById('trailer-video'),b=document.getElementById('toggle-trailer-btn');v.classList.toggle('hidden');b.innerHTML=v.classList.contains('hidden')?'\u25B6 Show':'\u25D8 Hide';" class="text-xs text-gray-400 bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-full flex-1 transition">&#9670; Hide</button>
       </div>
       <div id="trailer-video" class="relative w-full" style="padding-bottom:56.25%">
         <iframe id="yt-player" class="absolute top-0 left-0 w-full h-full rounded-2xl overflow-hidden glass" src="https://www.youtube.com/embed/{yt_id}?enablejsapi=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
