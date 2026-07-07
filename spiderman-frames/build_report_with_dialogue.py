@@ -94,10 +94,10 @@ Spider-Man: Brand New Day</h1>
   <div id="trailer-col" class="w-full lg:w-[480px] shrink-0">
     <div class="sticky top-4 z-10">
       <div class="flex gap-2 mb-2">
-        <button id="toggle-trailer-btn" class="text-xs text-gray-400 bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-full flex-1 transition flex items-center justify-center gap-1.5" onclick="var v=document.getElementById('trailer-video'),b=this;v.classList.toggle('hidden');b.innerHTML=v.classList.contains('hidden')?'<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" class=\"inline-block\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><polygon points=\"10,8 16,12 10,16\" fill=\"currentColor\" stroke=\"none\"/></svg> Show':'<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" class=\"inline-block\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2\"/></svg> Hide';"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline-block"><circle cx="12" cy="12" r="10"/><path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg> Hide</button>
+        <button id="toggle-trailer-btn" class="text-xs text-gray-400 bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-full flex-1 transition flex items-center justify-center gap-1.5" onclick="var v=document.getElementById('trailer-video'),b=this;v.classList.toggle('hidden');b.innerHTML=v.classList.contains('hidden')?'Show Trailer':'Hide Trailer';"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline-block align-text-bottom"><circle cx="12" cy="12" r="10"/><path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg> Hide</button>
       </div>
       <div id="trailer-video" class="relative w-full" style="padding-bottom:56.25%">
-        <iframe id="yt-player" class="absolute top-0 left-0 w-full h-full rounded-2xl overflow-hidden glass" src="https://www.youtube.com/embed/{yt_id}?enablejsapi=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe id="yt-player" class="absolute top-0 left-0 w-full h-full rounded-2xl overflow-hidden glass" src="https://www.youtube.com/embed/{yt_id}?enablejsapi=1&rel=0&autoplay=1&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
     </div>
   </div>
