@@ -95,7 +95,7 @@ Spider-Man: Brand New Day</h1>
     <div class="sticky top-4 z-10">
       <button onclick="document.getElementById('trailer-col').classList.toggle('hidden')" class="lg:hidden text-xs text-gray-500 mb-2 bg-white/5 px-3 py-1 rounded-full w-full">Toggle Trailer</button>
       <div class="aspect-video rounded-2xl overflow-hidden glass">
-        <iframe id="yt-player" width="100%" height="100%" src="https://www.youtube.com/embed/{yt_id}?enablejsapi=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="w-full h-full"></iframe>
+        <div id="yt-player" style="width:100%;height:100%"></div>
       </div>
     </div>
   </div>
@@ -106,14 +106,18 @@ Spider-Man: Brand New Day</h1>
 </div>
 </div>
 <script>
-const player = document.getElementById('yt-player');
-document.querySelectorAll('[data-seek]').forEach(el => {{
-  el.addEventListener('click', () => {{
-    const t = el.dataset.seek;
-    player.src = player.src.replace(/[?&]start=\\d+/,'') + '&start=' + t;
-  }});
-}});
+let ytPlayer;
+function onYouTubeIframeAPIReady() {
+  ytPlayer = new YT.Player('yt-player', { events: { 'onReady': () => {} } });
+}
+document.querySelectorAll('[data-seek]').forEach(el => {
+  el.addEventListener('click', () => {
+    const t = parseInt(el.dataset.seek);
+    if (ytPlayer && ytPlayer.seekTo) ytPlayer.seekTo(t, true);
+  });
+});
 </script>
+<script src="https://www.youtube.com/iframe_api"></script>
 </body></html>'''
 
 with open(OUTPUT, "w") as f:
