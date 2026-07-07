@@ -1,6 +1,8 @@
 const { test, expect } = require('@playwright/test');
 const path = require('path');
 
+test.use({ baseURL: 'file://' });
+
 const reportPath = 'file://' + path.resolve('/home/arjun/projects/yonjan-video-ai/spiderman-frames/report_helios.html');
 
 test.describe('Spider-Man BND Trailer Report', () => {
@@ -34,5 +36,34 @@ test.describe('Spider-Man BND Trailer Report', () => {
     await page.goto(reportPath);
     const timing = page.locator('text=RTX 5060');
     await expect(timing.first()).toBeVisible();
+  });
+
+  test('YouTube iframe should exist', async ({ page }) => {
+    await page.goto(reportPath);
+    const ytContainer = page.locator('#yt-player');
+    await expect(ytContainer).toBeVisible();
+  });
+
+  test('Hide Trailer button toggles video', async ({ page }) => {
+    await page.goto(reportPath, { waitUntil: 'domcontentloaded' });
+    await page.waitForSelector('#trailer-video', { timeout: 5000 });
+    const video = page.locator('#trailer-video');
+    await expect(video).toBeVisible({ timeout: 3000 });
+    const btn = page.locator('button').filter({ hasText: 'Hide Trailer' });
+    await btn.click({ timeout: 3000 });
+    await expect(video).toBeHidden({ timeout: 3000 });
+    const showBtn = page.locator('button').filter({ hasText: 'Show Trailer' });
+    await showBtn.click({ timeout: 3000 });
+    await expect(video).toBeVisible({ timeout: 3000 });
+  });
+
+  test('data-seek attribute exists on frame timestamps', async ({ page }) => {
+    await page.goto(reportPath, { waitUntil: 'domcontentloaded' });
+    await page.waitForSelector('[data-seek]', { timeout: 5000 });
+    const seekers = page.locator('[data-seek]');
+    const count = await seekers.count();
+    expect(count).toBeGreaterThan(100);
+    const val = await seekers.first().getAttribute('data-seek');
+    expect(parseInt(val)).not.toBeNaN();
   });
 });
