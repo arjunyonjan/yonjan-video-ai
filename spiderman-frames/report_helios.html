@@ -4228,7 +4228,7 @@ function onYouTubeIframeAPIReady() {
   ytPlayer = new YT.Player('yt-player', {
     videoId: '{yt_id}',
     playerVars: { autoplay: 1, mute: 1, rel: 0 },
-    events: { 'onReady': function(e) { e.target.playVideo(); } }
+    events: { 'onReady': function(e) { } }
   });
 }
 document.querySelectorAll('[data-seek]').forEach(el => {
