@@ -5,7 +5,7 @@
 <style>body{background:#0a0a0f;color:#e5e7eb;font-family:system-ui,sans-serif}
 .glass{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(12px)}
 </style></head><body class="min-h-screen">
-<div class="max-w-7xl mx-auto px-4 py-8">
+<div class="max-w-7xl mx-auto px-4 py-8 overflow-visible">
 <div class="text-center mb-8">
 <h1 class="text-4xl font-bold bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-transparent">
 Spider-Man: Brand New Day</h1>
@@ -14,7 +14,7 @@ Spider-Man: Brand New Day</h1>
 </div>
 <div class="flex flex-col lg:flex-row gap-6">
   <div id="trailer-col" class="w-full lg:w-[360px] shrink-0">
-    <div class="sticky top-0 lg:top-4 z-10 bg-[#0a0a0f] pb-2">
+    <div class="sticky top-0 z-20 bg-[#0a0a0f] pb-2">
       <div class="flex gap-2 mb-2">
         <button id="toggle-trailer-btn" class="text-xs text-gray-400 bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-full flex-1 transition flex items-center justify-center gap-1.5" onclick="var v=document.getElementById('trailer-video'),b=this;v.classList.toggle('hidden');b.innerHTML=v.classList.contains('hidden')?'Show Trailer':'Hide Trailer';"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline-block align-text-bottom"><circle cx="12" cy="12" r="10"/><path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg> Hide</button>
       </div>
