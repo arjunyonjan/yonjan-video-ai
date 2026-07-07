@@ -91,17 +91,18 @@ Spider-Man: Brand New Day</h1>
 <p class="text-gray-600 text-sm mt-1">162 frames · Moondream vision · Tesseract OCR · Whisper STT</p>
 </div>
 <div class="flex flex-col lg:flex-row gap-6">
-  <div id="trailer-col" class="w-full lg:w-[480px] shrink-0 lg:!block">
+  <div id="trailer-col" class="w-full lg:w-[480px] shrink-0">
     <div class="sticky top-4 z-10">
-      <button onclick="document.getElementById(\'trailer-col\').classList.toggle(\'hidden\')" class="lg:hidden text-xs text-gray-500 mb-2 bg-white/5 px-3 py-1 rounded-full w-full">Toggle Trailer</button>
-      <div class="relative w-full" style="padding-bottom:56.25%">
+      <div class="flex gap-2 mb-2">
+        <button onclick="document.getElementById(\'trailer-video\').classList.toggle(\'hidden\');this.textContent=this.textContent==\'Show Trailer\'?\'Hide Trailer\':\'Show Trailer\'" class="text-xs text-gray-500 bg-white/5 px-3 py-1 rounded-full flex-1">Hide Trailer</button>
+      </div>
+      <div id="trailer-video" class="relative w-full" style="padding-bottom:56.25%">
         <div id="yt-player" class="absolute top-0 left-0 w-full h-full rounded-2xl overflow-hidden glass"></div>
         <noscript><iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/{yt_id}" frameborder="0" allowfullscreen></iframe></noscript>
       </div>
     </div>
   </div>
   <div class="flex-1 min-w-0">
-    <button onclick="document.getElementById('trailer-col').classList.toggle('hidden')" class="hidden lg:block text-xs text-gray-500 mb-3 bg-white/5 px-3 py-1 rounded-full hover:bg-white/10 transition">Hide Trailer</button>
     <div id="frames">''' + frames_html + '''</div>
   </div>
 </div>
