@@ -4221,7 +4221,6 @@ TICKETS ON SALE NOW SpideyTracker.com</pre>
   </div>
 </div>
 </div>
-<script src="https://www.youtube.com/iframe_api"></script>
 <script>
 let ytPlayer;
 function onYouTubeIframeAPIReady() {
@@ -4230,6 +4229,9 @@ function onYouTubeIframeAPIReady() {
     playerVars: { rel: 0 }
   });
 }
+</script>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
 document.querySelectorAll('[data-seek]').forEach(el => {
   el.addEventListener('click', () => {
     const t = parseInt(el.dataset.seek);
