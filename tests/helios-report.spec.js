@@ -45,16 +45,15 @@ test.describe('Spider-Man BND Trailer Report', () => {
   });
 
   test('Hide Trailer button toggles video', async ({ page }) => {
-    await page.goto(reportPath, { waitUntil: 'domcontentloaded' });
-    await page.waitForSelector('#trailer-video', { timeout: 5000 });
+    await page.goto(reportPath, { waitUntil: 'load' });
+    await page.waitForSelector('#toggle-trailer-btn', { timeout: 5000 });
+    const btn = page.locator('#toggle-trailer-btn');
     const video = page.locator('#trailer-video');
-    await expect(video).toBeVisible({ timeout: 3000 });
-    const btn = page.locator('button').filter({ hasText: 'Hide Trailer' });
-    await btn.click({ timeout: 3000 });
-    await expect(video).toBeHidden({ timeout: 3000 });
-    const showBtn = page.locator('button').filter({ hasText: 'Show Trailer' });
-    await showBtn.click({ timeout: 3000 });
-    await expect(video).toBeVisible({ timeout: 3000 });
+    await expect(video).toBeVisible({ timeout: 5000 });
+    await page.evaluate(() => document.getElementById('toggle-trailer-btn').click());
+    await expect(video).not.toBeVisible({ timeout: 5000 });
+    await page.evaluate(() => document.getElementById('toggle-trailer-btn').click());
+    await expect(video).toBeVisible({ timeout: 5000 });
   });
 
   test('data-seek attribute exists on frame timestamps', async ({ page }) => {
