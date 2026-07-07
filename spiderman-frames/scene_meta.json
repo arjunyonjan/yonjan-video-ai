@@ -3,15 +3,543 @@
     {
       "num": 1,
       "start": 0.0,
-      "end": 6.29796
+      "end": 6.29796,
+      "duration": 6.29796,
+      "first_frame": "frame_001.jpg",
+      "desc": "In the image, a man is standing on a street corner in front of a building. He appears to be looking at something or someone off-camera and is wearing a black jacket. There are several other people vis...",
+      "ms": 26739,
+      "ocr": "",
+      "dialogue": [
+        "What is happening to me?",
+        "Did you miss this fight?"
+      ]
     },
     {
       "num": 2,
       "start": 6.29796,
-      "end": 19.4361
+      "end": 19.4361,
+      "duration": 13.13814,
+      "first_frame": "frame_007.jpg",
+      "desc": "The image features a close-up of Spiderman's face, with his red suit and ma mask clearly visible. The background is dark and blurred, making it difficu difficult to discern any specific details beyond...",
+      "ms": 569,
+      "ocr": "",
+      "dialogue": [
+        "I'm losing my mind.",
+        "I am totally out of control.",
+        "I got to fix whatever this is right now."
+      ]
+    },
+    {
+      "num": 3,
+      "start": 19.4361,
+      "end": 31.2395,
+      "duration": 11.8034,
+      "first_frame": "frame_020.jpg",
+      "desc": "The image features a large, red banner that displays the words \"Marvel Stud Studios\" in white letters. The banner is positioned horizontally and spans across the entire width of the frame. It has a me...",
+      "ms": 622,
+      "ocr": "STUDIOS",
+      "dialogue": [
+        "That foodie thing is actually watching this.",
+        "Maybe someone.",
+        "Okay, well buy someone.",
+        "What the fuck?",
+        "Doctor, better?"
+      ]
+    },
+    {
+      "num": 4,
+      "start": 31.2395,
+      "end": 33.033,
+      "duration": 1.7935000000000016,
+      "first_frame": "frame_032.jpg",
+      "desc": "The image features a man wearing glasses and sitting in front of a computer computer screen. He is leaning over the desk, possibly working on a project project or studying something displayed on the m...",
+      "ms": 1026,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 5,
+      "start": 33.033,
+      "end": 33.8672,
+      "duration": 0.8341999999999956,
+      "first_frame": "frame_034.jpg",
+      "desc": "The image shows a young man wearing a hoodie, standing in an empty auditori auditorium. He is looking up at the ceiling with a concerned expression on his face. The auditorium appears to be devoid of ...",
+      "ms": 1075,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 6,
+      "start": 33.8672,
+      "end": 35.1184,
+      "duration": 1.2512000000000043,
+      "first_frame": "frame_034.jpg",
+      "desc": "The image shows a young man wearing a hoodie, standing in an empty auditori auditorium. He is looking up at the ceiling with a concerned expression on his face. The auditorium appears to be devoid of ...",
+      "ms": 1075,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 7,
+      "start": 35.1184,
+      "end": 36.8702,
+      "duration": 1.7517999999999958,
+      "first_frame": "frame_036.jpg",
+      "desc": "In the image, a man and a boy are sitting at a table in front of a large sc screen. The man is wearing glasses and appears to be giving instructions or or explaining something to the young boy. They s...",
+      "ms": 653,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 8,
+      "start": 36.8702,
+      "end": 41.333,
+      "duration": 4.462800000000001,
+      "first_frame": "frame_037.jpg",
+      "desc": "In the image, a man wearing glasses is standing in front of a projector scr screen and appears to be giving instructions or explaining something. Behin Behind him, there's another person who seems to ...",
+      "ms": 687,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 9,
+      "start": 41.333,
+      "end": 43.5435,
+      "duration": 2.2105000000000032,
+      "first_frame": "frame_042.jpg",
+      "desc": "The image features a scene from the movie Spiderman, where the character is is flying through the air above a city. The superhero Spiderman can be seen seen in mid-flight with his legs spread wide apa...",
+      "ms": 785,
+      "ocr": "",
+      "dialogue": [
+        "How would you decide?"
+      ]
+    },
+    {
+      "num": 10,
+      "start": 43.5435,
+      "end": 45.0033,
+      "duration": 1.4598000000000013,
+      "first_frame": "frame_044.jpg",
+      "desc": "The image shows a blurred city street scene with buildings and cars. The fo focus is on the motion blur, which creates an artistic effect that emphasiz emphasizes the movement of objects in the scene....",
+      "ms": 624,
+      "ocr": "V4 |=\niW\ny)\n\n7]\n\ni Wf\" \"\nI",
+      "dialogue": []
+    },
+    {
+      "num": 11,
+      "start": 45.0033,
+      "end": 48.2565,
+      "duration": 3.2531999999999996,
+      "first_frame": "frame_046.jpg",
+      "desc": "The image depicts a large room filled with people sitting at tables, enjoyi enjoying their time together. The guests are dressed in formal attire and a appear to be engaged in conversation or dining. ...",
+      "ms": 781,
+      "ocr": "",
+      "dialogue": [
+        "Well, sorry about that."
+      ]
+    },
+    {
+      "num": 12,
+      "start": 48.2565,
+      "end": 50.2168,
+      "duration": 1.9602999999999966,
+      "first_frame": "frame_049.jpg",
+      "desc": "In the image, a man wearing glasses is standing in front of an archway or d doorway. He appears to be smiling and engaging with another person who is a also present in the scene. The other individual ...",
+      "ms": 720,
+      "ocr": "",
+      "dialogue": [
+        "You're not one of my students, aren't you?"
+      ]
+    },
+    {
+      "num": 13,
+      "start": 50.2168,
+      "end": 51.3012,
+      "duration": 1.0844000000000023,
+      "first_frame": "frame_051.jpg",
+      "desc": "The image shows a man and an older gentleman engaged in conversation. The m man is wearing glasses, a blue hoodie, and has short hair. He appears to be be looking at the older gentleman with interest ...",
+      "ms": 647,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 14,
+      "start": 51.3012,
+      "end": 52.8862,
+      "duration": 1.5850000000000009,
+      "first_frame": "frame_052.jpg",
+      "desc": "The image features a large, square graphic with the words \"This July\" writt written in red and blue neon colors. The text is positioned at the center o of the frame, making it the focal point of the d...",
+      "ms": 720,
+      "ocr": "THIS JULY",
+      "dialogue": []
+    },
+    {
+      "num": 15,
+      "start": 52.8862,
+      "end": 55.1801,
+      "duration": 2.2939000000000007,
+      "first_frame": "frame_053.jpg",
+      "desc": "The image features a large, black background with the words \"This July\" wri written in red and blue neon colors. The text is positioned centrally on th the screen, making it the focal point of the sce...",
+      "ms": 703,
+      "ocr": "THIS JULY",
+      "dialogue": []
+    },
+    {
+      "num": 16,
+      "start": 55.1801,
+      "end": 56.4731,
+      "duration": 1.2929999999999993,
+      "first_frame": "frame_056.jpg",
+      "desc": "The image features a man sitting in an office chair, wearing a suit and tie tie. He is looking at the camera with a serious expression on his face. The The scene takes place indoors, possibly in an of...",
+      "ms": 723,
+      "ocr": "_,",
+      "dialogue": []
+    },
+    {
+      "num": 17,
+      "start": 56.4731,
+      "end": 57.1821,
+      "duration": 0.7089999999999961,
+      "first_frame": "frame_057.jpg",
+      "desc": "The image features a person wearing a hooded sweatshirt and gloves, standin standing in front of a computer monitor. The individual appears to be holdi holding up their hand or making a gesture toward...",
+      "ms": 1063,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 18,
+      "start": 57.1821,
+      "end": 59.0173,
+      "duration": 1.8352000000000004,
+      "first_frame": "frame_058.jpg",
+      "desc": "The image shows a car and an armored vehicle crashing into each other on th the side of a road. The car is positioned in front of the armored vehicle, which appears to be moving away from it. The armo...",
+      "ms": 944,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 19,
+      "start": 59.0173,
+      "end": 60.1434,
+      "duration": 1.126100000000001,
+      "first_frame": "frame_060.jpg",
+      "desc": "The image shows an aerial view of a city with a river running through it. T The river is surrounded by tall buildings, and there are boats visible on t the water as well. One boat can be seen in the m...",
+      "ms": 870,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 20,
+      "start": 60.1434,
+      "end": 60.7273,
+      "duration": 0.5838999999999999,
+      "first_frame": "frame_061.jpg",
+      "desc": "The image shows an aerial view of a city with tall buildings, including sky skyscrapers and apartment buildings. The tallest building is located on the the right side of the scene, while another talle...",
+      "ms": 827,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 21,
+      "start": 60.7273,
+      "end": 62.1871,
+      "duration": 1.4598000000000013,
+      "first_frame": "frame_061.jpg",
+      "desc": "The image shows an aerial view of a city with tall buildings, including sky skyscrapers and apartment buildings. The tallest building is located on the the right side of the scene, while another talle...",
+      "ms": 827,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 22,
+      "start": 62.1871,
+      "end": 62.771,
+      "duration": 0.5838999999999999,
+      "first_frame": "frame_063.jpg",
+      "desc": "The image features a man dressed in a Spiderman costume, walking down the s street. He is holding a cane and appears to be in character as he walks pas past people who are also present on the sidewalk...",
+      "ms": 919,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 23,
+      "start": 62.771,
+      "end": 63.5218,
+      "duration": 0.7507999999999981,
+      "first_frame": "frame_063.jpg",
+      "desc": "The image features a man dressed in a Spiderman costume, walking down the s street. He is holding a cane and appears to be in character as he walks pas past people who are also present on the sidewalk...",
+      "ms": 919,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 24,
+      "start": 63.5218,
+      "end": 65.1484,
+      "duration": 1.6265999999999963,
+      "first_frame": "frame_064.jpg",
+      "desc": "The image depicts a lively scene at an outdoor party, with numerous people gathered around. Some of the attendees are standing and socializing, while others are sitting on chairs or benches. A group o...",
+      "ms": 820,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 25,
+      "start": 65.1484,
+      "end": 70.9042,
+      "duration": 5.755800000000008,
+      "first_frame": "frame_066.jpg",
+      "desc": "The image features a man dressed in a Spiderman costume, jumping off the si side of a tall building. He is wearing a red and blue suit with a yellow em emblem on his chest. The scene takes place in an...",
+      "ms": 803,
+      "ocr": "WSS",
+      "dialogue": [
+        "What do you think they're looking for?"
+      ]
+    },
+    {
+      "num": 26,
+      "start": 70.9042,
+      "end": 71.9052,
+      "duration": 1.0009999999999906,
+      "first_frame": "frame_071.jpg",
+      "desc": "The image features a bulletin board with various photos and papers attached attached to it. The most prominent photo is of Spiderman, which is located in the top left corner of the board. There are al...",
+      "ms": 963,
+      "ocr": "} Spider-Man'Unmasked: Could this Latinas == am\nParkour vay bethe Web-Swinger? ===",
+      "dialogue": []
+    },
+    {
+      "num": 27,
+      "start": 71.9052,
+      "end": 77.1604,
+      "duration": 5.255200000000002,
+      "first_frame": "frame_072.jpg",
+      "desc": "The image features a collage of various photos, including one of Spiderman and another with a person taking a selfie. The collage is displayed on a wa wall or poster board, showcasing the different im...",
+      "ms": 910,
+      "ocr": "",
+      "dialogue": [
+        "I'm not one of those weirdos, I swear.",
+        "He's a little weird.",
+        "I'm MJ."
+      ]
+    },
+    {
+      "num": 28,
+      "start": 77.1604,
+      "end": 77.7443,
+      "duration": 0.5838999999999999,
+      "first_frame": "frame_078.jpg",
+      "desc": "The image shows a young man sitting in front of a wall with various photos on it. He is wearing glasses and appears to be looking down at something, p possibly a book or a piece of paper. The scene ta...",
+      "ms": 671,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 29,
+      "start": 77.7443,
+      "end": 80.7473,
+      "duration": 3.003,
+      "first_frame": "frame_078.jpg",
+      "desc": "The image shows a young man sitting in front of a wall with various photos on it. He is wearing glasses and appears to be looking down at something, p possibly a book or a piece of paper. The scene ta...",
+      "ms": 671,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 30,
+      "start": 80.7473,
+      "end": 82.4991,
+      "duration": 1.751800000000003,
+      "first_frame": "frame_081.jpg",
+      "desc": "The image features a scene from the movie \"The Dark Knight\" with three peop people in it. The main focus is on a man wearing a hoodie, who appears to b be looking at the camera while standing next to ...",
+      "ms": 941,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 31,
+      "start": 82.4991,
+      "end": 83.375,
+      "duration": 0.8759000000000015,
+      "first_frame": "frame_083.jpg",
+      "desc": "The image shows a man dressed in a Spiderman costume standing on the sidewa sidewalk, looking at another person who is also wearing a Spiderman costume costume. The two individuals appear to be engage...",
+      "ms": 958,
+      "ocr": "",
+      "dialogue": [
+        "Okay."
+      ]
+    },
+    {
+      "num": 32,
+      "start": 83.375,
+      "end": 93.5518,
+      "duration": 10.1768,
+      "first_frame": "frame_084.jpg",
+      "desc": "The image features a person dressed in a red Spiderman costume, standing on on the side of a street. The character is wearing a mask with spider eyes a and holding a spider web-like object in their ha...",
+      "ms": 837,
+      "ocr": "",
+      "dialogue": [
+        "You can get rid of that monster inside you.",
+        "Think of my go see how MJ's doing.",
+        "You're not going to get away with this.",
+        "But he might."
+      ]
+    },
+    {
+      "num": 33,
+      "start": 93.5518,
+      "end": 94.2191,
+      "duration": 0.6672999999999973,
+      "first_frame": "frame_094.jpg",
+      "desc": "The image features a close-up of a person wearing a red Spiderman costume, standing in front of a window. The individual is positioned centrally withi within the frame and appears to be facing away fr...",
+      "ms": 694,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 34,
+      "start": 94.2191,
+      "end": 102.102,
+      "duration": 7.8829000000000065,
+      "first_frame": "frame_095.jpg",
+      "desc": "The image shows a person wearing a red shirt standing in front of a window, window, with the back of their head visible. The scene appears to be set in indoors, possibly at home or an office setting. ...",
+      "ms": 810,
+      "ocr": "i",
+      "dialogue": [
+        "I didn't know you could get that big.",
+        "What are you doing?"
+      ]
+    },
+    {
+      "num": 35,
+      "start": 102.102,
+      "end": 103.478,
+      "duration": 1.3759999999999906,
+      "first_frame": "frame_103.jpg",
+      "desc": "The image shows a woman sitting in a kitchen, with her head tilted to the s side. She is wearing a white shirt and has long hair that falls over her sh shoulders. The scene appears to be set in an old...",
+      "ms": 746,
+      "ocr": "",
+      "dialogue": [
+        "Fun."
+      ]
+    },
+    {
+      "num": 36,
+      "start": 103.478,
+      "end": 117.034,
+      "duration": 13.556000000000012,
+      "first_frame": "frame_104.jpg",
+      "desc": "The image shows a woman and a man standing close to each other, with the ma man wearing a red spiderman costume. The woman is hugging the man's arm in a friendly manner. They are both smiling at the c...",
+      "ms": 618,
+      "ocr": "",
+      "dialogue": [
+        "This whole thing I'm really scary.",
+        "The hell is that?",
+        "What are you?",
+        "Great, please.",
+        "I don't have anywhere else to go.",
+        "By the people who love you,",
+        "just gonna learn the lens off.",
+        "I love you because you're you."
+      ]
+    },
+    {
+      "num": 37,
+      "start": 117.034,
+      "end": 122.998,
+      "duration": 5.963999999999999,
+      "first_frame": "frame_118.jpg",
+      "desc": "The image shows a man sitting in the driver's seat of a car, wearing a blac black shirt. He is looking out the window and appears to be focused on his surroundings or possibly observing something outs...",
+      "ms": 673,
+      "ocr": "\\ LON ae\n,\\Y",
+      "dialogue": [
+        "If you're gonna do something, you better do it now."
+      ]
+    },
+    {
+      "num": 38,
+      "start": 122.998,
+      "end": 123.54,
+      "duration": 0.5420000000000016,
+      "first_frame": "frame_123.jpg",
+      "desc": "The image shows a group of people dressed in red outfits, possibly resembli resembling the characters from the movie \"Redemption.\" They are engaged in an intense fight or battle scene. One person is s...",
+      "ms": 901,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 39,
+      "start": 123.54,
+      "end": 129.463,
+      "duration": 5.922999999999988,
+      "first_frame": "frame_124.jpg",
+      "desc": "The image shows a person wearing a red and blue suit, possibly Superman, in in mid-air. The person is upside down with their arms outstretched, giving the impression of flying or performing an acrobat...",
+      "ms": 1081,
+      "ocr": "",
+      "dialogue": [
+        "Let me see me."
+      ]
+    },
+    {
+      "num": 40,
+      "start": 129.463,
+      "end": 135.677,
+      "duration": 6.213999999999999,
+      "first_frame": "frame_130.jpg",
+      "desc": "The image shows a scene from the movie \"Titanic\" featuring two ships collid colliding in the ocean. The ship on top of the building is engulfed by flam flames, while another ship is seen crashing into...",
+      "ms": 681,
+      "ocr": "es\n\n|\n\nPe\n\nPG \u201ca\nes\n7",
+      "dialogue": []
+    },
+    {
+      "num": 41,
+      "start": 135.677,
+      "end": 137.679,
+      "duration": 2.0020000000000095,
+      "first_frame": "frame_136.jpg",
+      "desc": "The image features a large, blue and red logo for the Marvel Studios movie \"Spider-Man: Brand New Day\". The logo is prominently displayed in the cente center of the frame. Below the logo, there are tw...",
+      "ms": 899,
+      "ocr": "(MARVEL STUDIOS",
+      "dialogue": []
+    },
+    {
+      "num": 42,
+      "start": 137.679,
+      "end": 151.86,
+      "duration": 14.181000000000012,
+      "first_frame": "frame_138.jpg",
+      "desc": "The image features a close-up of the head and upper body of a person wearin wearing a red spiderman costume. The costume is designed to resemble Spider Spiderman, with a red bodysuit that covers most ...",
+      "ms": 856,
+      "ocr": "",
+      "dialogue": [
+        "Give me a sec.",
+        "I'm not in high school anymore.",
+        "Did you stretch your big stretcher?",
+        "It's so good for you.",
+        "You ready?"
+      ]
+    },
+    {
+      "num": 43,
+      "start": 151.86,
+      "end": 152.903,
+      "duration": 1.042999999999978,
+      "first_frame": "frame_152.jpg",
+      "desc": "The image shows two people in action, with one person on the left side of t the frame performing a handstand and the other person on the right side att attempting to grab them. The scene takes place i...",
+      "ms": 774,
+      "ocr": "",
+      "dialogue": []
+    },
+    {
+      "num": 44,
+      "start": 152.903,
+      "end": 162.0,
+      "duration": 9.097000000000008,
+      "first_frame": "frame_153.jpg",
+      "desc": "The image shows a large screen displaying the words \"TICKETS ON SALES NOW\" in bold, red and blue letters. The text is positioned centrally on the scre screen with a slight tilt to the left side. This ...",
+      "ms": 969,
+      "ocr": "TICKETS\nON\nNO",
+      "dialogue": []
     }
   ],
-  "total_scenes": 44,
-  "clip_dir": "/home/arjun/projects/yonjan-video-ai/spiderman-frames/scene_clips",
-  "preview": "/home/arjun/projects/yonjan-video-ai/spiderman-frames/scene_preview.html"
+  "total": 44
 }
