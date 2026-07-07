@@ -1,0 +1,459 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Higgsfield Mini Proto — Expert Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0f;color:#e5e7eb;font-family:Inter,system-ui,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:48px 24px 96px}
+h1{font-size:2.4rem;font-weight:800;background:linear-gradient(135deg,#a855f7,#ec4899,#f43f5e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;letter-spacing:-.02em}
+.sub{color:#6b7280;font-size:.95rem;margin-bottom:48px;border-left:3px solid rgba(168,85,247,.3);padding-left:16px}
+h2{font-size:1.5rem;font-weight:700;color:#f9fafb;margin:48px 0 16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.06);letter-spacing:-.01em}
+h3{font-size:1.15rem;font-weight:600;color:#e5e7eb;margin:28px 0 12px}
+h4{font-size:1rem;font-weight:600;color:#d1d5db;margin:20px 0 8px}
+p{color:#9ca3af;margin-bottom:16px;font-size:.95rem}
+strong{color:#e5e7eb;font-weight:600}
+ul,ol{padding-left:24px;margin-bottom:16px}
+li{color:#9ca3af;margin-bottom:6px;font-size:.93rem}
+code{background:rgba(255,255,255,.07);color:#a78bfa;padding:2px 8px;border-radius:5px;font-size:.85em;font-family:'JetBrains Mono',monospace}
+pre{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:18px 20px;overflow-x:auto;margin:14px 0;font-size:.82em;color:#d1d5db;font-family:'JetBrains Mono',monospace;line-height:1.6}
+pre .kw{color:#f472b6}
+pre .fn{color:#60a5fa}
+pre .cm{color:#6b7280}
+pre .str{color:#34d399}
+.badge{display:inline-block;background:rgba(34,197,94,.12);color:#22c55e;padding:3px 12px;border-radius:14px;font-size:.72rem;font-weight:600}
+.badge-warn{background:rgba(234,179,8,.12);color:#eab308}
+.badge-info{background:rgba(59,130,246,.12);color:#60a5fa}
+hr{border:none;border-top:1px solid rgba(255,255,255,.06);margin:40px 0}
+.card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:24px;margin-bottom:20px;transition:border-color .2s}
+.card:hover{border-color:rgba(168,85,247,.2)}
+.card h3{margin-top:0;display:flex;align-items:center;gap:8px}
+.card h3 span{font-size:.8rem;background:rgba(168,85,247,.15);color:#a78bfa;padding:2px 10px;border-radius:10px}
+.chk{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.15);border-radius:4px;margin-right:8px;vertical-align:middle;flex-shrink:0}
+.chk-done{border-color:#22c55e;background:#22c55e;position:relative}
+.chk-done::after{content:'';position:absolute;left:4px;top:1px;width:5px;height:9px;border:solid #0a0a0f;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.task{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;color:#9ca3af;font-size:.9rem}
+.why{background:linear-gradient(135deg,rgba(168,85,247,.06),rgba(236,72,153,.06));border-left:3px solid rgba(168,85,247,.3);padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0 16px;font-size:.88rem;color:#a78bfa}
+.pitfall{background:rgba(234,179,8,.05);border-left:3px solid rgba(234,179,8,.3);padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0 16px;font-size:.88rem;color:#eab308}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.arch{font-family:'JetBrains Mono',monospace;font-size:.82em;color:#6b7280;line-height:1.7;padding:16px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:10px}
+.arch .hi{color:#a78bfa}
+.arch .gr{color:#34d399}
+.arch .ye{color:#eab308}
+.tag{display:inline-block;padding:1px 8px;border-radius:4px;font-size:.7rem;font-weight:600;margin-right:4px}
+.tag-purple{background:rgba(168,85,247,.15);color:#a78bfa}
+.tag-green{background:rgba(34,197,94,.12);color:#22c55e}
+.tag-blue{background:rgba(59,130,246,.12);color:#60a5fa}
+.tag-red{background:rgba(239,68,68,.12);color:#f87171}
+</style>
+</head><body>
+<div class="wrap">
+
+<h1>Higgsfield Mini Proto</h1>
+<p class="sub">Expert-level plan for building an AI video generation platform &mdash; explained for everyone &mdash; 4 weeks, one GPU, zero cloud costs</p>
+
+<h2>What Is Higgsfield AI?</h2>
+<p>Higgsfield is a <strong>$1.3B company</strong> that lets anyone generate Hollywood-quality videos from text. Type "a dragon flying over Kathmandu at sunset" &rarr; it creates a video. Want to put your face on a character? Done. Want the same character across every scene? Handled.</p>
+
+<p>Their stack:</p>
+<ul>
+<li><strong>Seedance 2.0</strong> &mdash; text-to-video in 4K</li>
+<li><strong>Flash Face Swap</strong> &mdash; put any face on any video</li>
+<li><strong>Soul ID</strong> &mdash; keep the same character across scenes</li>
+<li><strong>Cinema Studio</strong> &mdash; professional color grading, camera moves</li>
+<li><strong>Supercomputer</strong> &mdash; AI agent that plans your entire video before generating</li>
+</ul>
+
+<p>We're building a <strong>mini version</strong> that runs entirely on your RTX 5060. No cloud APIs. No monthly fees.</p>
+
+<hr>
+
+<h2>How It Works &mdash; The Core Technologies</h2>
+
+<h3>Diffusion Models for Video</h3>
+<p>Imagine you have a photograph. Now imagine adding static noise grain until the photo is completely destroyed &mdash; just random dots. A diffusion model <strong>learns to reverse this process</strong>: starting from random noise, it removes the noise step by step until a clear image emerges.</p>
+
+<p>For <strong>video</strong>, the same idea applies but with an extra dimension: time. Instead of one image, the model generates 24-30 frames per second simultaneously, making sure each frame connects smoothly to the next. This is called <strong>Stable Video Diffusion (SVD)</strong>.</p>
+
+<div class="why">
+<strong>Why this matters:</strong> Regular text-to-image models (like Stable Diffusion) treat each image independently &mdash; they can't create consistent video. SVD adds temporal layers that track how pixels move between frames. This is why videos don't flicker or jump.
+</div>
+
+<h4>Training vs. Inference</h4>
+<p><strong>Inference</strong> = using an existing model to generate videos (takes 10-30 seconds per video on RTX 5060).<br>
+<strong>Training (LoRA)</strong> = teaching the model a new concept with 5-10 example videos (takes 1-2 hours).</p>
+
+<h3>LoRA Fine-Tuning &mdash; Teaching the Model Your Style</h3>
+<p>LoRA stands for <strong>Low-Rank Adaptation</strong>. Think of it like putting a temporary tattoo on the model: instead of retraining the entire 2-billion-parameter brain, you train a tiny adapter module that plugs into the existing brain. This adapter captures your specific style, character, or environment.</p>
+<pre><span class="kw">from</span> diffusers <span class="kw">import</span> StableVideoDiffusionPipeline
+<span class="kw">from</span> peft <span class="kw">import</span> LoraConfig, get_peft_model
+
+<span class="cm"># Load base model (2B params)</span>
+pipe = StableVideoDiffusionPipeline.from_pretrained(<span class="str">"stabilityai/stable-video-diffusion-img2vid"</span>)
+
+<span class="cm"># Attach tiny LoRA adapter (2M params = 0.1% of original)</span>
+lora = LoraConfig(r=<span class="str">64</span>, target_modules=[<span class="str">"to_q"</span>, <span class="str">"to_k"</span>, <span class="str">"to_v"</span>])
+pipe.unet = get_peft_model(pipe.unet, lora)
+
+<span class="cm"># Train on your 10 videos</span>
+trainer.train()  <span class="cm"># ~1 hour on RTX 5060</span></pre>
+
+<div class="why">
+<strong>Why LoRA instead of full training?</strong> Full training takes weeks on clusters of A100s ($50K+ GPU time). LoRA takes 1 hour on your laptop GPU. The adapter file is only 5MB &mdash; you can share it like a photo.
+</div>
+
+<div class="pitfall">
+<strong>Common pitfall:</strong> Training on videos that are too similar. If all 10 videos are of the same person in the same room, LoRA overfits &mdash; it can only generate that room. Mix environments, angles, and lighting.
+</div>
+
+<h3>Face Swap &mdash; InsightFace + Inswapper</h3>
+<p><strong>InsightFace</strong> detects faces in every video frame. It finds 5 key points (eyes, nose, mouth corners) and aligns the face to a standard position.</p>
+<p><strong>Inswapper_128</strong> is a specialized model that takes a source face and a target face, then blends the source expression/movement onto the target face. It runs ~50ms per frame on GPU.</p>
+<pre><span class="kw">import</span> insightface
+
+<span class="cm"># Load models</span>
+detector = insightface.model_zoo.get_model(<span class="str">"buffalo_l"</span>)
+swapper = insightface.model_zoo.get_model(<span class="str">"inswapper_128.onnx"</span>)
+
+<span class="cm"># Process frame by frame</span>
+<span class="kw">for</span> frame <span class="kw">in</span> video_frames:
+    faces = detector.get(frame)           <span class="cm"># Detect all faces</span>
+    frame = swapper.get(frame, faces[0], target_face, paste_back=<span class="kw">True</span>)
+    output_frames.append(frame)
+
+<span class="cm"># Temporal smoothing: average face position across 5 frames</span>
+<span class="cm"># to prevent jittery face movement</span></pre>
+
+<div class="why">
+<strong>Why temporal smoothing?</strong> Face swap on individual frames creates a shaking effect because the face position varies slightly between frames. Averaging positions across 3-5 frames eliminates this &mdash; the face stays locked in place.
+</div>
+
+<h3>Character Consistency &mdash; IP-Adapter</h3>
+<p><strong>IP-Adapter</strong> (Image Prompt Adapter) works like the concept of "show, don't tell". Instead of describing a character with words ("a young woman with brown hair and blue eyes"), you show the model a reference image. The model then generates every scene with that exact person.</p>
+
+<pre><span class="kw">from</span> diffusers <span class="kw">import</span> StableVideoDiffusionPipeline
+<span class="kw">from</span> ip_adapter <span class="kw">import</span> IPAdapter
+
+<span class="cm"># Load IP-Adapter with your character image</span>
+ip_adapter = IPAdapter(pipe, <span class="str">"ip-adapter-faceid-plusv2_sd15.bin"</span>)
+pipe.unet = ip_adapter.apply(<span class="str">"character.jpg"</span>)  <span class="cm"># Show the face once</span>
+
+<span class="cm"># Now every generation uses this face automatically</span>
+video = pipe(<span class="str">"a hero walking through a forest"</span>).frames
+<span class="cm"># Same character, different scene</span></pre>
+
+<div class="why">
+<strong>Why IP-Adapter instead of LoRA for faces?</strong> LoRA needs multiple training images. IP-Adapter works from a single photo &mdash; like showing a passport photo to a security guard. It's instant, no training needed.
+</div>
+
+<hr>
+
+<h2>4-Week Build Plan &mdash; Day by Day</h2>
+
+<div class="card">
+<h3>Week 1: Text-to-Video Core <span>Days 1-7</span></h3>
+
+<h4>Day 1: Environment Setup</h4>
+<div class="task"><span class="chk"></span> Install Python 3.12, CUDA 12.4, PyTorch 2.6</div>
+<div class="task"><span class="chk"></span> Set up conda environment: <code>conda create -n hf-video python=3.12</code></div>
+<div class="task"><span class="chk"></span> Install diffusers, transformers, accelerate, xformers</div>
+<pre><span class="kw">pip install</span> torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+<span class="kw">pip install</span> diffusers transformers accelerate xformers sentencepiece protobuf</pre>
+
+<h4>Day 2: First Video Generation</h4>
+<div class="task"><span class="chk"></span> Run Stable Video Diffusion on a test image</div>
+<div class="task"><span class="chk"></span> Compare fp32 vs fp16 speed (<code>torch_dtype=torch.float16</code>)</div>
+<pre><span class="kw">from</span> diffusers <span class="kw">import</span> StableVideoDiffusionPipeline
+<span class="kw">import</span> torch
+
+pipe = StableVideoDiffusionPipeline.from_pretrained(
+    <span class="str">"stabilityai/stable-video-diffusion-img2vid"</span>,
+    torch_dtype=torch.float16,
+    variant=<span class="str">"fp16"</span>
+).to(<span class="str">"cuda"</span>)
+
+pipe.enable_xformers_memory_efficient_attention()
+pipe.enable_model_cpu_offload()  <span class="cm"># Saves VRAM</span>
+
+image = Image.open(<span class="str">"test.jpg"</span>)
+frames = pipe(image, decode_chunk_size=8).frames[0]
+<span class="cm"># ~30 seconds for 25 frames on RTX 5060</span></pre>
+
+<div class="why">
+<strong>Why fp16?</strong> Half-precision (16-bit) uses half the memory and runs ~2x faster than full precision (32-bit). On 8GB VRAM, this is the difference between generating 25 frames vs 6 frames per batch.
+</div>
+
+<h4>Day 3: Attention Slicing &amp; Memory</h4>
+<div class="task"><span class="chk"></span> Enable <code>attention_slicing</code> to reduce peak VRAM</div>
+<div class="task"><span class="chk"></span> Benchmark: batch sizes 1, 2, 4 with different decode_chunk_size</div>
+<div class="task"><span class="chk"></span> Find optimal settings for RTX 5060 8GB</div>
+<pre><span class="cm"># Attention slicing: processes attention in smaller chunks</span>
+pipe.enable_attention_slicing(<span class="str">"max"</span>)
+
+<span class="cm"># Memory optimal config for 8GB VRAM:</span>
+config = {
+    <span class="str">"decode_chunk_size"</span>: 4,     <span class="cm"># Process 4 frames at a time</span>
+    <span class="str">"num_frames"</span>: 25,            <span class="cm"># ~1 second of video</span>
+    <span class="str">"height"</span>: 512,               <span class="cm"># 720p requires too much VRAM</span>
+    <span class="str">"width"</span>: 512,
+    <span class="str">"num_inference_steps"</span>: 25,  <span class="cm"># Quality vs speed tradeoff</span>
+}</pre>
+
+<div class="pitfall">
+<strong>Pitfall:</strong> Using decode_chunk_size=25 (all frames at once) on 8GB VRAM causes OOM. Start with 4, increase until memory runs out, then step back by 1.
+</div>
+
+<h4>Day 4-5: LoRA Training</h4>
+<div class="task"><span class="chk"></span> Collect 10 videos (5-15 seconds each, diverse scenes)</div>
+<div class="task"><span class="chk"></span> Preprocess: extract frames at 4fps, resize to 512x512</div>
+<div class="task"><span class="chk"></span> Train LoRA with rank=64 for 1 hour</div>
+<div class="task"><span class="chk"></span> Save adapter: <code>pipe.save_lora_weights("my-style-lora.safetensors")</code></div>
+<pre><span class="cm"># Training command (simplified)</span>
+accelerate launch train_lora.py \
+    --pretrained_model_name="stabilityai/stable-video-diffusion-img2vid" \
+    --train_data_dir="./my_videos" \
+    --rank=64 \
+    --learning_rate=1e-4 \
+    --num_train_epochs=100 \
+    --mixed_precision=fp16</pre>
+
+<h4>Day 6-7: CLI Tool &amp; Testing</h4>
+<div class="task"><span class="chk"></span> Build CLI: <code>hf-gen "prompt" --lora my-style --output video.mp4</code></div>
+<div class="task"><span class="chk"></span> Test 10 prompts, measure quality + speed</div>
+<div class="task"><span class="chk"></span> Fix common issues (flickering, artifacts, face distortion)</div>
+</div>
+
+<div class="card">
+<h3>Week 2: Face Swap <span>Days 8-14</span></h3>
+
+<h4>Day 8-9: InsightFace Setup</h4>
+<div class="task"><span class="chk"></span> Install insightface, onnxruntime-gpu</div>
+<div class="task"><span class="chk"></span> Download buffalo_l + inswapper_128 models</div>
+<div class="task"><span class="chk"></span> Test face detection on 100 random images</div>
+<pre><span class="kw">pip install</span> insightface onnxruntime-gpu
+<span class="kw">pip install</span> opencv-python-headless
+
+<span class="cm"># Download models (first run auto-downloads)</span>
+<span class="kw">import</span> insightface
+detector = insightface.model_zoo.get_model(<span class="str">'buffalo_l'</span>)
+swapper = insightface.model_zoo.get_model(<span class="str">'inswapper_128.onnx'</span>)</pre>
+
+<h4>Day 10-11: Frame-by-Frame Swap</h4>
+<div class="task"><span class="chk"></span> Extract video frames with ffmpeg</div>
+<div class="task"><span class="chk"></span> Run face swap on each frame</div>
+<div class="task"><span class="chk"></span> Reassemble video with ffmpeg</div>
+<pre><span class="cm"># Extract frames</span>
+ffmpeg -i input.mp4 -q:v 2 frames/frame_%04d.jpg
+
+<span class="cm"># Swap faces (Python)</span>
+<span class="kw">for</span> frame_path <span class="kw">in</span> sorted(frames):
+    img = cv2.imread(frame_path)
+    faces = detector.get(img)
+    <span class="kw">if</span> len(faces) > 0:
+        img = swapper.get(img, faces[0], target_face)
+    cv2.imwrite(<span class="str">f"output_{frame_path}"</span>, img)
+
+<span class="cm"># Reassemble</span>
+ffmpeg -i output_frame_%04d.jpg -i audio.wav -c:v libx264 output.mp4</pre>
+
+<h4>Day 12: Temporal Smoothing</h4>
+<div class="task"><span class="chk"></span> Implement 3-frame rolling average for face landmarks</div>
+<div class="task"><span class="chk"></span> Implement 5-frame average for face bounding box</div>
+<div class="task"><span class="chk"></span> Compare with/without smoothing</div>
+
+<h4>Day 13-14: hf-swap CLI</h4>
+<div class="task"><span class="chk"></span> Build CLI: <code>hf-swap source.mp4 face.jpg --output result.mp4</code></div>
+<div class="task"><span class="chk"></span> Add --smooth (temporal), --blend (edge feathering) options</div>
+<div class="task"><span class="chk"></span> Benchmark: 30fps video, measure ms/frame</div>
+</div>
+
+<div class="card">
+<h3>Week 3: Character Consistency <span>Days 15-21</span></h3>
+
+<h4>Day 15-16: IP-Adapter Setup</h4>
+<div class="task"><span class="chk"></span> Install ip-adapter from GitHub (<code>pip install git+https://github.com/tencent-ailab/IP-Adapter.git</code>)</div>
+<div class="task"><span class="chk"></span> Download faceid-plusv2 model (~900MB)</div>
+<div class="task"><span class="chk"></span> Test: generate 5 videos with same reference face</div>
+
+<h4>Day 17-18: Multi-Scene Characters</h4>
+<div class="task"><span class="chk"></span> Generate 3 different scenes with same character</div>
+<div class="task"><span class="chk"></span> Compare with/without IP-Adapter</div>
+<div class="task"><span class="chk"></span> Blend face swap + IP-Adapter for best quality</div>
+
+<h4>Day 19-20: Background Replacement</h4>
+<div class="task"><span class="chk"></span> Use inpainting pipeline to replace backgrounds</div>
+<div class="task"><span class="chk"></span> REMOVE background: rembg or SAM (Segment Anything)</div>
+<div class="task"><span class="chk"></span> INSERT into new scene with Stable Diffusion inpainting</div>
+<pre><span class="cm"># Remove background</span>
+<span class="kw">from</span> rembg <span class="kw">import</span> remove
+foreground = remove(frame)  <span class="cm"># Returns RGBA with transparent bg</span>
+
+<span class="cm"># Inpaint into new scene</span>
+pipe(<span class="str">"a futuristic city street"</span>, mask_image=mask, image=foreground)</pre>
+
+<h4>Day 21: hf-consistent CLI</h4>
+<div class="task"><span class="chk"></span> Build CLI: <code>hf-consistent character.jpg "prompt" --output scene.mp4</code></div>
+<div class="task"><span class="chk"></span> Combine IP-Adapter + background replacement</div>
+</div>
+
+<div class="card">
+<h3>Week 4: Cinema Pipeline <span>Days 22-28</span></h3>
+
+<h4>Day 22-23: Color Grading</h4>
+<div class="task"><span class="chk"></span> Apply LUTs (Look-Up Tables) to video frames</div>
+<div class="task"><span class="chk"></span> Build 5 preset grades: Blockbuster, Noir, Vintage, Teal-Orange, Warm</div>
+<pre><span class="cm"># Apply LUT using ffmpeg</span>
+ffmpeg -i input.mp4 -vf <span class="str">"lut3d=blockbuster.cube"</span> output.mp4
+
+<span class="cm"># Or programmatically with OpenCV</span>
+lut = cv2.imread(<span class="str">"blockbuster.png"</span>)  <span class="cm"># 256x1 LUT image</span>
+frame = cv2.LUT(frame, lut)</pre>
+
+<h4>Day 24-25: Motion Interpolation</h4>
+<div class="task"><span class="chk"></span> Install RIFE (Real-Time Intermediate Flow Estimation)</div>
+<div class="task"><span class="chk"></span> Upsample 24fps to 60fps or 120fps</div>
+<pre><span class="cm"># RIFE interpolation (Python)</span>
+<span class="kw">from</span> rife <span class="kw">import</span> RIFE
+model = RIFE(<span class="str">"rife46.pth"</span>)
+smooth_frames = model.interpolate(frames, times=<span class="str">2</span>)  <span class="cm"># 2x frames</span>
+
+<span class="cm"># ffmpeg alternative with minterpolate filter</span>
+ffmpeg -i input.mp4 -vf <span class="str">"minterpolate=fps=60:mi_mode=mci"</span> output.mp4</pre>
+
+<h4>Day 26-27: Audio Sync</h4>
+<div class="task"><span class="chk"></span> Extract audio from source or generate with TTS</div>
+<div class="task"><span class="chk"></span> Sync lips with Wav2Lip or SyncNet</div>
+<div class="task"><span class="chk"></span> Add background music with auto ducking</div>
+<pre><span class="cm"># Add background music with audio ducking (ffmpeg)</span>
+ffmpeg -i video.mp4 -i bg_music.mp3 \
+    -filter_complex <span class="str">"[1:a]volume=0.3[bg];[0:a][bg]amix=inputs=2:duration=first"</span> \
+    output.mp4</pre>
+
+<h4>Day 28: hf-cinema CLI &amp; Final Polish</h4>
+<div class="task"><span class="chk"></span> Build CLI: <code>hf-cinema script.json --output cinema.mp4</code></div>
+<div class="task"><span class="chk"></span> Script format: scenes with prompt, character, grade, music</div>
+<div class="task"><span class="chk"></span> Run full pipeline end-to-end: text &rarr; cinema-quality video</div>
+<pre><span class="cm">// script.json example</span>
+{
+  <span class="str">"scenes"</span>: [
+    { <span class="str">"prompt"</span>: <span class="str">"hero standing on cliff at sunset"</span>,
+      <span class="str">"character"</span>: <span class="str">"hero.jpg"</span>,
+      <span class="str">"grade"</span>: <span class="str">"blockbuster"</span>,
+      <span class="str">"duration"</span>: 5,
+      <span class="str">"music"</span>: <span class="str">"epic.mp3"</span> }
+  ]
+}</pre>
+</div>
+
+<hr>
+
+<h2>Hardware &mdash; Why GPU Matters</h2>
+
+<div class="grid">
+<div>
+<h4>RTX 5060 (8GB)</h4>
+<ul>
+<li>Text-to-video: 30-60s per 2-second clip</li>
+<li>Face swap: 50ms per frame (30fps = 1.5s per second)</li>
+<li>LoRA training: 1-2 hours</li>
+<li>Motion interpolation: 2x realtime</li>
+</ul>
+</div>
+<div>
+<h4>Without GPU (CPU only)</h4>
+<ul>
+<li>Text-to-video: 30-60 MINUTES per clip</li>
+<li>Face swap: 2-5 seconds per frame</li>
+<li>LoRA training: 2-3 days</li>
+<li>Motion interpolation: 0.1x realtime</li>
+</ul>
+</div>
+</div>
+
+<p><strong>Every single step</strong> benefits from GPU acceleration. The RTX 5060 with 8GB VRAM hits a sweet spot: fast enough for interactive work, affordable enough to own. The Blackwell architecture gives us 4th-gen Tensor Cores optimized for fp16 inference.</p>
+
+<hr>
+
+<h2>Architecture</h2>
+
+<div class="arch">
+<span class="gr">higgsfield-mini/</span><br>
+│<br>
+<span class="hi">&#9500;&#9472;&#9472; analyze/</span>          <span class="ye">Scene analysis (done)</span><br>
+<span class="hi">&#9474;   &#9500;&#9472;&#9472; scene_detect.py</span>          ffmpeg scene detection<br>
+<span class="hi">&#9474;   &#9500;&#9472;&#9472; frame_extract.py</span>         Extracts frames per scene<br>
+<span class="hi">&#9474;   &#9500;&#9472;&#9472; moondream_analyze.py</span>      Moondream vision AI<br>
+<span class="hi">&#9474;   &#9492;&#9472;&#9472; whisper_transcribe.py</span>      GPU speech-to-text<br>
+│<br>
+<span class="hi">&#9500;&#9472;&#9472; generate/</span>          <span class="ye">Video generation (Week 1)</span><br>
+<span class="hi">&#9474;   &#9500;&#9472;&#9472; svd_pipeline.py</span>          Stable Video Diffusion<br>
+<span class="hi">&#9474;   &#9500;&#9472;&#9472; lora_train.py</span>            LoRA fine-tuning<br>
+<span class="hi">&#9474;   &#9492;&#9472;&#9472; face_swap.py</span>            InsightFace + inswapper<br>
+│<br>
+<span class="hi">&#9500;&#9472;&#9472; consistent/</span>        <span class="ye">Character consistency (Week 3)</span><br>
+<span class="hi">&#9474;   &#9500;&#9472;&#9472; ip_adapter.py</span>            IP-Adapter pipeline<br>
+<span class="hi">&#9474;   &#9492;&#9472;&#9472; background_replacer.py</span>   Inpainting<br>
+│<br>
+<span class="hi">&#9500;&#9472;&#9472; cinema/</span>            <span class="ye">Post-processing (Week 4)</span><br>
+<span class="hi">&#9474;   &#9500;&#9472;&#9472; color_grade.py</span>           LUT application<br>
+<span class="hi">&#9474;   &#9500;&#9472;&#9472; interpolate.py</span>          RIFE motion smoothing<br>
+<span class="hi">&#9474;   &#9492;&#9472;&#9472; audio_sync.py</span>           TTS + music + ducking<br>
+│<br>
+<span class="hi">&#9500;&#9472;&#9472; cli/</span>               <span class="ye">Entry points</span><br>
+<span class="hi">&#9474;   &#9500;&#9472;&#9472; hf-gen</span>                 Text-to-video<br>
+<span class="hi">&#9474;   &#9500;&#9472;&#9472; hf-swap</span>               Face swap<br>
+<span class="hi">&#9474;   &#9500;&#9472;&#9472; hf-consistent</span>         Character consistent video<br>
+<span class="hi">&#9474;   &#9492;&#9472;&#9472; hf-cinema</span>             Full cinema pipeline<br>
+│<br>
+<span class="hi">&#9492;&#9472;&#9472; requirements.txt</span><br>
+<span class="hi">&#9492;&#9472;&#9472; script.json</span>              Example cinema script
+</div>
+
+<hr>
+
+<h2>Models &amp; File Sizes</h2>
+
+<table style="width:100%;border-collapse:collapse;margin:12px 0">
+<tr style="border-bottom:1px solid rgba(255,255,255,.06)">
+<th style="text-align:left;padding:8px 12px;color:#9ca3af;font-size:.85rem">Model</th>
+<th style="text-align:left;padding:8px 12px;color:#9ca3af;font-size:.85rem">Size</th>
+<th style="text-align:left;padding:8px 12px;color:#9ca3af;font-size:.85rem">Used For</th>
+<th style="text-align:left;padding:8px 12px;color:#9ca3af;font-size:.85rem">Download</th>
+</tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,.04)">
+<td style="padding:6px 12px;color:#e5e7eb;font-size:.85rem">Stable Video Diffusion</td>
+<td style="padding:6px 12px;color:#9ca3af;font-size:.85rem">~4GB</td>
+<td style="padding:6px 12px;color:#9ca3af;font-size:.85rem">Text/image to video</td>
+<td style="padding:6px 12px;color:#34d399;font-size:.85rem">HuggingFace</td>
+</tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,.04)">
+<td style="padding:6px 12px;color:#e5e7eb;font-size:.85rem">InsightFace buffalo_l</td>
+<td style="padding:6px 12px;color:#9ca3af;font-size:.85rem">~180MB</td>
+<td style="padding:6px 12px;color:#9ca3af;font-size:.85rem">Face detection</td>
+<td style="padding:6px 12px;color:#34d399;font-size:.85rem">Auto</td>
+</tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,.04)">
+<td style="padding:6px 12px;color:#e5e7eb;font-size:.85rem">Inswapper_128</td>
+<td style="padding:6px 12px;color:#9ca3af;font-size:.85rem">~250MB</td>
+<td style="padding:6px 12px;color:#9ca3af;font-size:.85rem">Face swapping</td>
+<td style="padding:6px 12px;color:#34d399;font-size:.85rem">InsightFace</td>
+</tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,.04)">
+<td style="padding:6px 12px;color:#e5e7eb;font-size:.85rem">IP-Adapter FaceID Plus</td>
+<td style="padding:6px 12px;color:#9ca3af;font-size:.85rem">~900MB</td>
+<td style="padding:6px 12px;color:#9ca3af;font-size:.85rem">Character consistency</td>
+<td style="padding:6px 12px;color:#34d399;font-size:.85rem">HuggingFace</td>
+</tr>
+<tr>
+<td style="padding:6px 12px;color:#e5e7eb;font-size:.85rem">RIFE (FILM)</td>
+<td style="padding:6px 12px;color:#9ca3af;font-size:.85rem">~50MB</td>
+<td style="padding:6px 12px;color:#9ca3af;font-size:.85rem">Motion interpolation</td>
+<td style="padding:6px 12px;color:#34d399;font-size:.85rem">GitHub</td>
+</tr>
+</table>
+
+<p style="text-align:center;color:#6b7280;font-size:.8rem;margin-top:64px">Built on Helios (RTX 5060) &mdash; Generated by Fuche AI &mdash; 2026-07-07</p>
+
+</div>
+</body></html>
